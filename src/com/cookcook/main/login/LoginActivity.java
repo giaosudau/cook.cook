@@ -16,16 +16,19 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 public class LoginActivity extends Activity {
-
+	EditText field_username;
+	EditText field_password;
+	Button btn_login;
+	Button btn_create_an_account;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
-		final EditText field_username = (EditText) findViewById(R.id.field_username);
-		final EditText field_password = (EditText) findViewById(R.id.field_password);
-		Button btn_login = (Button) findViewById(R.id.btn_login);
-		Button btn_create_an_account = (Button) findViewById(R.id.btn_create_an_account);
+		field_username = (EditText) findViewById(R.id.field_username);
+		field_password = (EditText) findViewById(R.id.field_password);
+		btn_login = (Button) findViewById(R.id.btn_login);
+		btn_create_an_account = (Button) findViewById(R.id.btn_create_an_account);
 
 		btn_login.setOnClickListener(new View.OnClickListener() {
 
