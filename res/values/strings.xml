@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">cook.cook</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="app_id">326316217501738</string>
+    <string name="msg_message">Welcome</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="txt_need_an_account">Need An Account</string>
+    <string name="btn_create_an_account">Create An Account</string>
+    <string name="or_login_facebook">Or</string>
+    <string name="txt_signup_form">Create An Account</string>
+    <string name="hint_screen_name">Screen Name</string>
+    <string name="hint_email">Your Email</string>
+    <string name="btn_join">Join</string>
+
+</resources>

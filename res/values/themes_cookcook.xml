@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="CookCook" parent="android:Theme.Light">
+
+    <item name="android:editTextStyle">@style/EditTextCookCook</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewCookCook</item>
+
+    <item name="android:checkboxStyle">@style/CheckBoxCookCook</item>
+
+    <item name="android:radioButtonStyle">@style/RadioButtonCookCook</item>
+
+    <item name="android:buttonStyle">@style/ButtonCookCook</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonCookCook</item>
+
+    <item name="android:spinnerStyle">@style/SpinnerCookCook</item>
+
+    <item name="android:dropDownSpinnerStyle">@style/SpinnerCookCook.DropDown</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemCookCook</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarCookCook</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarCookCook</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBarCookCook</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigCookCook</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallCookCook</item>
+
+    <item name="android:buttonStyleToggle">@style/ToggleCookCook</item>
+
+    <item name="android:listViewStyle">@style/ListViewCookCook</item>
+
+    <item name="android:listViewWhiteStyle">@style/ListViewCookCook.White</item>
+
+    <item name="android:spinnerItemStyle">@style/SpinnerItemCookCook</item>
+
+    
+
+  </style>
+
+</resources>

@@ -1,0 +1,12 @@
+*.a
+*.class
+*.dll
+*.dylib
+*.exe
+*.o
+*.obj
+*.pyc
+*.pyo
+*.so
+*/.git/*
+.deployables
