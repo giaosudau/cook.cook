@@ -1,8 +1,10 @@
 package com.cookcook.main.login;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -80,6 +82,15 @@ public class JoinActivity extends Activity {
 							new JsonHttpResponseHandler() {
 								@Override
 								public void onSuccess(JSONObject result) {
+									try {
+										if(result.get("info") == "success"){
+											Intent myIntent = new Intent(getApplicationContext(), LoginActivity.class);
+											startActivityForResult(myIntent, 0);
+										}
+									} catch (JSONException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 									Toast.makeText(getApplicationContext(),
 											result.toString(),
 											Toast.LENGTH_LONG).show();

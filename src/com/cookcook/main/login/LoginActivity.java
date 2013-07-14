@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings.Secure;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class LoginActivity extends Activity {
 	EditText field_password;
 	Button btn_login;
 	Button btn_create_an_account;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,7 +31,7 @@ public class LoginActivity extends Activity {
 		field_password = (EditText) findViewById(R.id.field_password);
 		btn_login = (Button) findViewById(R.id.btn_login);
 		btn_create_an_account = (Button) findViewById(R.id.btn_create_an_account);
-
+		
 		btn_login.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -44,9 +46,12 @@ public class LoginActivity extends Activity {
 							"Please Enter Password", Toast.LENGTH_SHORT).show();
 				} else {
 					// send to server
+					String android_id = Secure.getString(getBaseContext().getContentResolver(),
+				            Secure.ANDROID_ID); 
 					RequestParams params = new RequestParams();
 					params.put("name", strUserName);
 					params.put("password", strPassword);
+					params.put("device", android_id);
 					RestClient.post("auth/login", params,
 							new JsonHttpResponseHandler() {
 								@Override
