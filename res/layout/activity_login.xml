@@ -54,7 +54,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="@string/btn_login"
-        android:textColor="@color/com_facebook_loginview_text_color" />
+        android:textColor="@color/white" />
 
     <CheckedTextView
         android:id="@+id/checkedTextView1"
@@ -91,6 +91,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/btn_create_an_account"
-        android:textColor="@color/com_facebook_loginview_text_color" />
+        android:textColor="@color/white" />
 
 </LinearLayout>
