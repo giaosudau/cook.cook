@@ -2,16 +2,16 @@ package com.cookcook.main.navi_drawer;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.actionbarsherlock.app.SherlockActivity;
 import com.cookcook.main.R;
 //import com.actionbarsherlock.app.SherlockActivity;
 
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
 import android.widget.ListView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends SherlockActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,21 +59,21 @@ public class MainActivity extends Activity {
 		ListView list  = (ListView)findViewById(R.id.left_drawer);
 		list.setAdapter(adapter);
 		
-//		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//		getSupportActionBar().setHomeButtonEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setHomeButtonEnabled(true);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
 //	@Override
-//	public boolean onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu) {
-//		// TODO Auto-generated method stub
-//		getSupportMenuInflater().inflate(R.menu.main, (com.actionbarsherlock.view.Menu) menu);
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		// Inflate the menu; this adds items to the action bar if it is present.
+//		getMenuInflater().inflate(R.menu.main, menu);
 //		return true;
 //	}
+	@Override
+	public boolean onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu) {
+		// TODO Auto-generated method stub
+		getSupportMenuInflater().inflate(R.menu.main, (com.actionbarsherlock.view.Menu) menu);
+		return true;
+	}
 
 }
