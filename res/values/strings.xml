@@ -16,5 +16,22 @@
     <string name="hint_screen_name">Screen Name</string>
     <string name="hint_email">Your Email</string>
     <string name="btn_join">Join</string>
-
+	<string-array name="navi_menus_array">
+        <item>Find Stuff</item>
+        <item>Home</item>
+        <item>Search</item>
+        <item>All Categories</item>
+        <item>My favorites</item>
+        <item>Whats New?</item>
+        <item>Social</item>
+        <item>Your Nick</item>
+        <item>News Feed</item>
+        <item>Forums</item>
+        <item>My Recipes</item>
+        <item>Meal Planner</item>
+        <item>Shopping List</item>
+        <item>My Messages</item>
+        <item>Settings</item>
+        <item>Love this App?</item>
+    </string-array>
 </resources>
