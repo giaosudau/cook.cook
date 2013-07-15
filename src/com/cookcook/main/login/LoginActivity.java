@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.cookcook.main.R;
 
 import com.cookcook.main.http.RestClient;
 import com.loopj.android.http.JsonHttpResponseHandler;

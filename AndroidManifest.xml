@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cookcook.main.login"
+    package="com.cookcook.main"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -17,14 +17,20 @@
         <activity
             android:name="com.cookcook.main.login.LoginActivity"
             android:label="@string/app_name" >
+            
+        </activity>
+        <activity android:name="com.facebook.LoginActivity"/>
+        <activity android:name="com.cookcook.main.login.JoinActivity"/>
+        
+         <activity
+            android:name="com.cookcook.main.navi_drawer.MainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.facebook.LoginActivity"/>
-        <activity android:name="com.cookcook.main.login.JoinActivity"/>
     </application>
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
     

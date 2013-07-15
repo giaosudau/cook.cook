@@ -5,9 +5,12 @@
  * should not be modified by hand.
  */
 
-package com.cookcook.main.login;
+package com.cookcook.main;
 
 public final class R {
+    public static final class array {
+        public static final int navi_menus_array=0x7f090000;
+    }
     public static final class attr {
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -295,78 +298,93 @@ containing a value of this type.
         public static final int fastscroll_thumb_holo=0x7f020050;
         public static final int fastscroll_thumb_pressed_holo=0x7f020051;
         public static final int ic_launcher=0x7f020052;
-        public static final int item_background_holo_light=0x7f020053;
-        public static final int list_activated_holo=0x7f020054;
-        public static final int list_focused_holo=0x7f020055;
-        public static final int list_longpressed_holo=0x7f020056;
-        public static final int list_pressed_holo_light=0x7f020057;
-        public static final int list_selector_background_transition_holo_light=0x7f020058;
-        public static final int list_selector_disabled_holo_light=0x7f020059;
-        public static final int list_selector_holo_light=0x7f02005a;
-        public static final int numberpicker_selection_divider=0x7f02005b;
-        public static final int progress_bg_holo_light=0x7f02005c;
-        public static final int progress_horizontal_holo_light=0x7f02005d;
-        public static final int progress_indeterminate_horizontal_holo_light=0x7f02005e;
-        public static final int progress_primary_holo_light=0x7f02005f;
-        public static final int progress_secondary_holo_light=0x7f020060;
-        public static final int progressbar_indeterminate_holo1=0x7f020061;
-        public static final int progressbar_indeterminate_holo2=0x7f020062;
-        public static final int progressbar_indeterminate_holo3=0x7f020063;
-        public static final int progressbar_indeterminate_holo4=0x7f020064;
-        public static final int progressbar_indeterminate_holo5=0x7f020065;
-        public static final int progressbar_indeterminate_holo6=0x7f020066;
-        public static final int progressbar_indeterminate_holo7=0x7f020067;
-        public static final int progressbar_indeterminate_holo8=0x7f020068;
-        public static final int rate_star_big_half_holo_light=0x7f020069;
-        public static final int rate_star_big_off_holo_light=0x7f02006a;
-        public static final int rate_star_big_on_holo_light=0x7f02006b;
-        public static final int rate_star_small_half_holo_light=0x7f02006c;
-        public static final int rate_star_small_off_holo_light=0x7f02006d;
-        public static final int rate_star_small_on_holo_light=0x7f02006e;
-        public static final int ratingbar_full_empty_holo_light=0x7f02006f;
-        public static final int ratingbar_full_filled_holo_light=0x7f020070;
-        public static final int ratingbar_full_holo_light=0x7f020071;
-        public static final int ratingbar_holo_light=0x7f020072;
-        public static final int ratingbar_small_holo_light=0x7f020073;
-        public static final int scrubber_control_disabled_holo=0x7f020074;
-        public static final int scrubber_control_focused_holo=0x7f020075;
-        public static final int scrubber_control_normal_holo=0x7f020076;
-        public static final int scrubber_control_pressed_holo=0x7f020077;
-        public static final int scrubber_control_selector_holo_light=0x7f020078;
-        public static final int scrubber_primary_holo=0x7f020079;
-        public static final int scrubber_progress_horizontal_holo_light=0x7f02007a;
-        public static final int scrubber_secondary_holo=0x7f02007b;
-        public static final int scrubber_track_holo_light=0x7f02007c;
-        public static final int spinner_background_holo_light=0x7f02007d;
-        public static final int spinner_default_holo_light=0x7f02007e;
-        public static final int spinner_disabled_holo_light=0x7f02007f;
-        public static final int spinner_focused_holo_light=0x7f020080;
-        public static final int spinner_pressed_holo_light=0x7f020081;
-        public static final int switch_bg_disabled_holo_light=0x7f020082;
-        public static final int switch_bg_focused_holo_light=0x7f020083;
-        public static final int switch_bg_holo_light=0x7f020084;
-        public static final int switch_inner_holo_light=0x7f020085;
-        public static final int switch_thumb_activated_holo_light=0x7f020086;
-        public static final int switch_thumb_disabled_holo_light=0x7f020087;
-        public static final int switch_thumb_holo_light=0x7f020088;
-        public static final int switch_thumb_pressed_holo_light=0x7f020089;
-        public static final int switch_track_holo_light=0x7f02008a;
-        public static final int tab_indicator_holo=0x7f02008b;
-        public static final int tab_selected_focused_holo=0x7f02008c;
-        public static final int tab_selected_holo=0x7f02008d;
-        public static final int tab_selected_pressed_holo=0x7f02008e;
-        public static final int tab_unselected_focused_holo=0x7f02008f;
-        public static final int tab_unselected_holo=0x7f020090;
-        public static final int tab_unselected_pressed_holo=0x7f020091;
-        public static final int textfield_activated_holo_light=0x7f020092;
-        public static final int textfield_default_holo_light=0x7f020093;
-        public static final int textfield_disabled_focused_holo_light=0x7f020094;
-        public static final int textfield_disabled_holo_light=0x7f020095;
-        public static final int textfield_focused_holo_light=0x7f020096;
+        public static final int icon_categ=0x7f020053;
+        public static final int icon_favorite=0x7f020054;
+        public static final int icon_forum=0x7f020055;
+        public static final int icon_home=0x7f020056;
+        public static final int icon_love_app=0x7f020057;
+        public static final int icon_meal_plan=0x7f020058;
+        public static final int icon_message=0x7f020059;
+        public static final int icon_news=0x7f02005a;
+        public static final int icon_news_feed=0x7f02005b;
+        public static final int icon_receipt=0x7f02005c;
+        public static final int icon_search=0x7f02005d;
+        public static final int icon_setting=0x7f02005e;
+        public static final int icon_shop_list=0x7f02005f;
+        public static final int item_background_holo_light=0x7f020060;
+        public static final int list_activated_holo=0x7f020061;
+        public static final int list_focused_holo=0x7f020062;
+        public static final int list_longpressed_holo=0x7f020063;
+        public static final int list_pressed_holo_light=0x7f020064;
+        public static final int list_selector_background_transition_holo_light=0x7f020065;
+        public static final int list_selector_disabled_holo_light=0x7f020066;
+        public static final int list_selector_holo_light=0x7f020067;
+        public static final int nav_header_list_color=0x7f020068;
+        public static final int nav_list_color=0x7f020069;
+        public static final int numberpicker_selection_divider=0x7f02006a;
+        public static final int progress_bg_holo_light=0x7f02006b;
+        public static final int progress_horizontal_holo_light=0x7f02006c;
+        public static final int progress_indeterminate_horizontal_holo_light=0x7f02006d;
+        public static final int progress_primary_holo_light=0x7f02006e;
+        public static final int progress_secondary_holo_light=0x7f02006f;
+        public static final int progressbar_indeterminate_holo1=0x7f020070;
+        public static final int progressbar_indeterminate_holo2=0x7f020071;
+        public static final int progressbar_indeterminate_holo3=0x7f020072;
+        public static final int progressbar_indeterminate_holo4=0x7f020073;
+        public static final int progressbar_indeterminate_holo5=0x7f020074;
+        public static final int progressbar_indeterminate_holo6=0x7f020075;
+        public static final int progressbar_indeterminate_holo7=0x7f020076;
+        public static final int progressbar_indeterminate_holo8=0x7f020077;
+        public static final int rate_star_big_half_holo_light=0x7f020078;
+        public static final int rate_star_big_off_holo_light=0x7f020079;
+        public static final int rate_star_big_on_holo_light=0x7f02007a;
+        public static final int rate_star_small_half_holo_light=0x7f02007b;
+        public static final int rate_star_small_off_holo_light=0x7f02007c;
+        public static final int rate_star_small_on_holo_light=0x7f02007d;
+        public static final int ratingbar_full_empty_holo_light=0x7f02007e;
+        public static final int ratingbar_full_filled_holo_light=0x7f02007f;
+        public static final int ratingbar_full_holo_light=0x7f020080;
+        public static final int ratingbar_holo_light=0x7f020081;
+        public static final int ratingbar_small_holo_light=0x7f020082;
+        public static final int scrubber_control_disabled_holo=0x7f020083;
+        public static final int scrubber_control_focused_holo=0x7f020084;
+        public static final int scrubber_control_normal_holo=0x7f020085;
+        public static final int scrubber_control_pressed_holo=0x7f020086;
+        public static final int scrubber_control_selector_holo_light=0x7f020087;
+        public static final int scrubber_primary_holo=0x7f020088;
+        public static final int scrubber_progress_horizontal_holo_light=0x7f020089;
+        public static final int scrubber_secondary_holo=0x7f02008a;
+        public static final int scrubber_track_holo_light=0x7f02008b;
+        public static final int spinner_background_holo_light=0x7f02008c;
+        public static final int spinner_default_holo_light=0x7f02008d;
+        public static final int spinner_disabled_holo_light=0x7f02008e;
+        public static final int spinner_focused_holo_light=0x7f02008f;
+        public static final int spinner_pressed_holo_light=0x7f020090;
+        public static final int switch_bg_disabled_holo_light=0x7f020091;
+        public static final int switch_bg_focused_holo_light=0x7f020092;
+        public static final int switch_bg_holo_light=0x7f020093;
+        public static final int switch_inner_holo_light=0x7f020094;
+        public static final int switch_thumb_activated_holo_light=0x7f020095;
+        public static final int switch_thumb_disabled_holo_light=0x7f020096;
+        public static final int switch_thumb_holo_light=0x7f020097;
+        public static final int switch_thumb_pressed_holo_light=0x7f020098;
+        public static final int switch_track_holo_light=0x7f020099;
+        public static final int tab_indicator_holo=0x7f02009a;
+        public static final int tab_selected_focused_holo=0x7f02009b;
+        public static final int tab_selected_holo=0x7f02009c;
+        public static final int tab_selected_pressed_holo=0x7f02009d;
+        public static final int tab_unselected_focused_holo=0x7f02009e;
+        public static final int tab_unselected_holo=0x7f02009f;
+        public static final int tab_unselected_pressed_holo=0x7f0200a0;
+        public static final int textfield_activated_holo_light=0x7f0200a1;
+        public static final int textfield_default_holo_light=0x7f0200a2;
+        public static final int textfield_disabled_focused_holo_light=0x7f0200a3;
+        public static final int textfield_disabled_holo_light=0x7f0200a4;
+        public static final int textfield_focused_holo_light=0x7f0200a5;
     }
     public static final class id {
         public static final int MainLayout=0x7f040003;
-        public static final int action_settings=0x7f040027;
+        public static final int action_settings=0x7f04002e;
         public static final int authButton=0x7f040009;
         public static final int btn_create_an_account=0x7f04000b;
         public static final int btn_join=0x7f040026;
@@ -392,6 +410,8 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_login_button=0x7f040020;
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f04001e;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f04001f;
+        public static final int content_frame=0x7f04002c;
+        public static final int drawer_layout=0x7f04002b;
         public static final int field_email_sign_up=0x7f040024;
         public static final int field_password=0x7f040006;
         public static final int field_password_sign_up=0x7f040025;
@@ -399,6 +419,11 @@ containing a value of this type.
         public static final int field_username=0x7f040005;
         public static final int field_username_sign_up=0x7f040023;
         public static final int large=0x7f040002;
+        public static final int layout_header=0x7f040027;
+        public static final int left_drawer=0x7f04002d;
+        public static final int navi_menu_icon=0x7f040029;
+        public static final int navi_menu_text=0x7f04002a;
+        public static final int navi_menu_text2=0x7f040028;
         public static final int normal=0x7f040001;
         public static final int picker_subtitle=0x7f04001d;
         public static final int search_box=0x7f04001c;
@@ -422,10 +447,14 @@ containing a value of this type.
         public static final int com_facebook_placepickerfragment_list_row=0x7f03000c;
         public static final int com_facebook_usersettingsfragment=0x7f03000d;
         public static final int create_an_account=0x7f03000e;
-        public static final int tab_indicator_holo=0x7f03000f;
+        public static final int drawer_list_header_item=0x7f03000f;
+        public static final int drawer_list_item=0x7f030010;
+        public static final int navigation_drawer=0x7f030011;
+        public static final int tab_indicator_holo=0x7f030012;
     }
     public static final class menu {
-        public static final int login=0x7f090000;
+        public static final int login=0x7f0a0000;
+        public static final int main=0x7f0a0001;
     }
     public static final class string {
         public static final int action_settings=0x7f05001a;
@@ -528,11 +557,11 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #TabWidget_divider com.cookcook.main.login:divider}</code></td><td> Drawable used to draw the divider between tabs.</td></tr>
-           <tr><td><code>{@link #TabWidget_tabLayout com.cookcook.main.login:tabLayout}</code></td><td> Layout used to organize each tab's content.</td></tr>
-           <tr><td><code>{@link #TabWidget_tabStripEnabled com.cookcook.main.login:tabStripEnabled}</code></td><td> Determines whether the strip under the tab indicators is drawn or not.</td></tr>
-           <tr><td><code>{@link #TabWidget_tabStripLeft com.cookcook.main.login:tabStripLeft}</code></td><td> Drawable used to draw the left part of the strip underneath the tabs.</td></tr>
-           <tr><td><code>{@link #TabWidget_tabStripRight com.cookcook.main.login:tabStripRight}</code></td><td> Drawable used to draw the right part of the strip underneath the tabs.</td></tr>
+           <tr><td><code>{@link #TabWidget_divider com.cookcook.main:divider}</code></td><td> Drawable used to draw the divider between tabs.</td></tr>
+           <tr><td><code>{@link #TabWidget_tabLayout com.cookcook.main:tabLayout}</code></td><td> Layout used to organize each tab's content.</td></tr>
+           <tr><td><code>{@link #TabWidget_tabStripEnabled com.cookcook.main:tabStripEnabled}</code></td><td> Determines whether the strip under the tab indicators is drawn or not.</td></tr>
+           <tr><td><code>{@link #TabWidget_tabStripLeft com.cookcook.main:tabStripLeft}</code></td><td> Drawable used to draw the left part of the strip underneath the tabs.</td></tr>
+           <tr><td><code>{@link #TabWidget_tabStripRight com.cookcook.main:tabStripRight}</code></td><td> Drawable used to draw the right part of the strip underneath the tabs.</td></tr>
            </table>
            @see #TabWidget_divider
            @see #TabWidget_tabLayout
@@ -614,7 +643,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_friend_picker_fragment_multi_select com.cookcook.main.login:multi_select}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_friend_picker_fragment_multi_select com.cookcook.main:multi_select}</code></td><td></td></tr>
            </table>
            @see #com_facebook_friend_picker_fragment_multi_select
          */
@@ -622,7 +651,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010007
         };
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#multi_select}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#multi_select}
           attribute's value can be found in the {@link #com_facebook_friend_picker_fragment} array.
 
 
@@ -641,10 +670,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_login_view_confirm_logout com.cookcook.main.login:confirm_logout}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_login_view_fetch_user_info com.cookcook.main.login:fetch_user_info}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_login_view_login_text com.cookcook.main.login:login_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_login_view_logout_text com.cookcook.main.login:logout_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_confirm_logout com.cookcook.main:confirm_logout}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_fetch_user_info com.cookcook.main:fetch_user_info}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_login_text com.cookcook.main:login_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_logout_text com.cookcook.main:logout_text}</code></td><td></td></tr>
            </table>
            @see #com_facebook_login_view_confirm_logout
            @see #com_facebook_login_view_fetch_user_info
@@ -655,7 +684,7 @@ containing a value of this type.
             0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f
         };
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#confirm_logout}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#confirm_logout}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -669,7 +698,7 @@ containing a value of this type.
         */
         public static final int com_facebook_login_view_confirm_logout = 0;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#fetch_user_info}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#fetch_user_info}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -683,7 +712,7 @@ containing a value of this type.
         */
         public static final int com_facebook_login_view_fetch_user_info = 1;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#login_text}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#login_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -697,7 +726,7 @@ containing a value of this type.
         */
         public static final int com_facebook_login_view_login_text = 2;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#logout_text}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#logout_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -716,13 +745,13 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_done_button_background com.cookcook.main.login:done_button_background}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_done_button_text com.cookcook.main.login:done_button_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_extra_fields com.cookcook.main.login:extra_fields}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_show_pictures com.cookcook.main.login:show_pictures}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_show_title_bar com.cookcook.main.login:show_title_bar}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_title_bar_background com.cookcook.main.login:title_bar_background}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_title_text com.cookcook.main.login:title_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_done_button_background com.cookcook.main:done_button_background}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_done_button_text com.cookcook.main:done_button_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_extra_fields com.cookcook.main:extra_fields}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_show_pictures com.cookcook.main:show_pictures}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_show_title_bar com.cookcook.main:show_title_bar}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_title_bar_background com.cookcook.main:title_bar_background}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_title_text com.cookcook.main:title_text}</code></td><td></td></tr>
            </table>
            @see #com_facebook_picker_fragment_done_button_background
            @see #com_facebook_picker_fragment_done_button_text
@@ -737,7 +766,7 @@ containing a value of this type.
             0x7f010004, 0x7f010005, 0x7f010006
         };
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#done_button_background}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#done_button_background}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -747,7 +776,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int com_facebook_picker_fragment_done_button_background = 6;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#done_button_text}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#done_button_text}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -761,7 +790,7 @@ containing a value of this type.
         */
         public static final int com_facebook_picker_fragment_done_button_text = 4;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#extra_fields}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#extra_fields}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -775,7 +804,7 @@ containing a value of this type.
         */
         public static final int com_facebook_picker_fragment_extra_fields = 1;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#show_pictures}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#show_pictures}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -789,7 +818,7 @@ containing a value of this type.
         */
         public static final int com_facebook_picker_fragment_show_pictures = 0;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#show_title_bar}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#show_title_bar}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -803,7 +832,7 @@ containing a value of this type.
         */
         public static final int com_facebook_picker_fragment_show_title_bar = 2;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#title_bar_background}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#title_bar_background}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -813,7 +842,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int com_facebook_picker_fragment_title_bar_background = 5;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#title_text}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#title_text}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -832,10 +861,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_place_picker_fragment_radius_in_meters com.cookcook.main.login:radius_in_meters}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_place_picker_fragment_results_limit com.cookcook.main.login:results_limit}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_place_picker_fragment_search_text com.cookcook.main.login:search_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_place_picker_fragment_show_search_box com.cookcook.main.login:show_search_box}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_radius_in_meters com.cookcook.main:radius_in_meters}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_results_limit com.cookcook.main:results_limit}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_search_text com.cookcook.main:search_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_show_search_box com.cookcook.main:show_search_box}</code></td><td></td></tr>
            </table>
            @see #com_facebook_place_picker_fragment_radius_in_meters
            @see #com_facebook_place_picker_fragment_results_limit
@@ -846,7 +875,7 @@ containing a value of this type.
             0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b
         };
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#radius_in_meters}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#radius_in_meters}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -860,7 +889,7 @@ containing a value of this type.
         */
         public static final int com_facebook_place_picker_fragment_radius_in_meters = 0;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#results_limit}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#results_limit}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -874,7 +903,7 @@ containing a value of this type.
         */
         public static final int com_facebook_place_picker_fragment_results_limit = 1;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#search_text}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#search_text}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -888,7 +917,7 @@ containing a value of this type.
         */
         public static final int com_facebook_place_picker_fragment_search_text = 2;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#show_search_box}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#show_search_box}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -907,8 +936,8 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_profile_picture_view_is_cropped com.cookcook.main.login:is_cropped}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_profile_picture_view_preset_size com.cookcook.main.login:preset_size}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_profile_picture_view_is_cropped com.cookcook.main:is_cropped}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_profile_picture_view_preset_size com.cookcook.main:preset_size}</code></td><td></td></tr>
            </table>
            @see #com_facebook_profile_picture_view_is_cropped
            @see #com_facebook_profile_picture_view_preset_size
@@ -917,7 +946,7 @@ containing a value of this type.
             0x7f010010, 0x7f010011
         };
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#is_cropped}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#is_cropped}
           attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
 
 
@@ -931,7 +960,7 @@ containing a value of this type.
         */
         public static final int com_facebook_profile_picture_view_is_cropped = 1;
         /**
-          <p>This symbol is the offset where the {@link com.cookcook.main.login.R.attr#preset_size}
+          <p>This symbol is the offset where the {@link com.cookcook.main.R.attr#preset_size}
           attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
 
 
