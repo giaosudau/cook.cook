@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
 import android.view.View;
@@ -21,6 +22,32 @@ public class LoginActivity extends Activity {
 	EditText field_password;
 	Button btn_login;
 	Button btn_create_an_account;
+	static final int SIGN_UP_REQUEST = 1; // The request code
+	static final int HOME_REQUEST = 2; 
+	
+	
+	private void login(String strUserName, String strPassword) {
+		String android_id = Secure.getString(getBaseContext()
+				.getContentResolver(), Secure.ANDROID_ID);
+		RequestParams params = new RequestParams();
+		params.put("name", strUserName);
+		params.put("password", strPassword);
+		params.put("device", android_id);
+		RestClient.post("auth/login", params,
+				new JsonHttpResponseHandler() {
+					@Override
+					public void onSuccess(JSONObject result) {
+						Toast.makeText(getApplicationContext(),
+								result.toString(),
+								Toast.LENGTH_LONG).show();
+						Intent home_intent = new Intent(getApplicationContext(),
+								JoinActivity.class);
+						startActivityForResult(home_intent, HOME_REQUEST);
+					}
+				});
+	}
+	
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +58,7 @@ public class LoginActivity extends Activity {
 		field_password = (EditText) findViewById(R.id.field_password);
 		btn_login = (Button) findViewById(R.id.btn_login);
 		btn_create_an_account = (Button) findViewById(R.id.btn_create_an_account);
-		
+
 		btn_login.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -46,24 +73,12 @@ public class LoginActivity extends Activity {
 							"Please Enter Password", Toast.LENGTH_SHORT).show();
 				} else {
 					// send to server
-					String android_id = Secure.getString(getBaseContext().getContentResolver(),
-				            Secure.ANDROID_ID); 
-					RequestParams params = new RequestParams();
-					params.put("name", strUserName);
-					params.put("password", strPassword);
-					params.put("device", android_id);
-					RestClient.post("auth/login", params,
-							new JsonHttpResponseHandler() {
-								@Override
-								public void onSuccess(JSONObject result) {
-									Toast.makeText(getApplicationContext(),
-											result.toString(),
-											Toast.LENGTH_LONG).show();
-								}
-							});
+					login(strUserName, strPassword);
 				}
 
 			}
+
+			
 		});
 
 		btn_create_an_account.setOnClickListener(new OnClickListener() {
@@ -71,10 +86,27 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				Intent myIntent = new Intent(v.getContext(), JoinActivity.class);
-				startActivityForResult(myIntent, 0);
+				Intent sign_up_intent = new Intent(v.getContext(),
+						JoinActivity.class);
+				startActivityForResult(sign_up_intent, SIGN_UP_REQUEST);
 			}
 		});
+
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		/* super.onActivityResult(requestCode, resultCode, data); */
+		// Check which request we're responding to
+		if (requestCode == SIGN_UP_REQUEST) {
+			// Make sure the request was successful
+			if (resultCode == RESULT_OK) {
+				String username = data.getExtras().getString("username");
+				String password = data.getExtras().getString("password");
+				login(username, password);
+			}
+		}
 
 	}
 

@@ -36,19 +36,18 @@ public class JoinActivity extends Activity {
 		btn_join = (Button) findViewById(R.id.btn_join);
 		
 		
+		
 		btn_join.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 
-				
-
 				String str_screen_name = field_screen_name_sign_up.getText()
 						.toString();
-				String str_username = field_username_sign_up.getText()
+				final String str_username = field_username_sign_up.getText()
 						.toString();
 				String str_email = field_email_sign_up.getText().toString();
-				String str_password = field_password_sign_up.getText()
+				final String str_password = field_password_sign_up.getText()
 						.toString();
 
 				Toast.makeText(
@@ -94,6 +93,13 @@ public class JoinActivity extends Activity {
 									Toast.makeText(getApplicationContext(),
 											result.toString(),
 											Toast.LENGTH_LONG).show();
+									Intent intent = getIntent();
+									intent.putExtra("register", "OK");
+									intent.putExtra("name", str_username);
+									intent.putExtra("password", str_password);
+									setResult(RESULT_OK, intent);
+									finish();
+									
 								}
 							});
 				}
