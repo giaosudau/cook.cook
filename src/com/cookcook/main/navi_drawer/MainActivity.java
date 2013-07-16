@@ -3,16 +3,23 @@ package com.cookcook.main.navi_drawer;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.cookcook.main.R;
+import com.cookcook.main.socialfragment.Shopping_list_fragment;
 //import com.actionbarsherlock.app.SherlockActivity;
 
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
-public class MainActivity extends SherlockActivity {
+public class MainActivity extends SherlockFragmentActivity {
 
+	DrawerLayout mDrawerLayout;
+	ListView mDrawerList;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,9 +63,9 @@ public class MainActivity extends SherlockActivity {
 		}
 		TwoTextArrayAdapter adapter = new TwoTextArrayAdapter(getApplicationContext(), items);
 		
-		ListView list  = (ListView)findViewById(R.id.left_drawer);
-		list.setAdapter(adapter);
-		
+		mDrawerList  = (ListView)findViewById(R.id.left_drawer);
+		mDrawerList.setAdapter(adapter);
+		mDrawerList.setOnItemClickListener(new Drawer_List_Item_Listener());
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
 	}
@@ -75,5 +82,27 @@ public class MainActivity extends SherlockActivity {
 		getSupportMenuInflater().inflate(R.menu.main, (com.actionbarsherlock.view.Menu) menu);
 		return true;
 	}
+	private void selectItem(int position)
+	{
+//     update the main content by replacing fragments
+      Fragment fragment = new Shopping_list_fragment();
+      Bundle args = new Bundle();
+//      args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
+//      fragment.setArguments(args);
 
+      android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+      fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+      // update selected item and title, then close the drawer
+//      mDrawerList.setItemChecked(position, true);
+//      setTitle(mPlanetTitles[position]);
+//      mDrawerLayout.closeDrawer(mDrawerList);
+	}
+
+	 private class Drawer_List_Item_Listener implements ListView.OnItemClickListener {
+	        @Override
+	        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+	            selectItem(position);
+	        }
+	    }
 }

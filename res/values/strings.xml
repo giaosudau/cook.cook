@@ -34,4 +34,11 @@
         <item>Settings</item>
         <item>Love this App?</item>
     </string-array>
+    
+	<!-- String for shopping list -->
+    <string name="btn_remove_checked_shopping_list">Remove Checked</string>
+    <string name="btn_share_checked_shopping_list">Share Checked</string>
+    <string name="btn_add_item_shopping_list">Add Item</string>
+    <string name="btn_select_all_shopping_list">Select All</string>
+    <string name="btn_deselect_all_shopping_list">Deselect All</string>
 </resources>
