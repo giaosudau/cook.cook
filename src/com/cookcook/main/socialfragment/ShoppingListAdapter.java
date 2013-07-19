@@ -7,6 +7,7 @@ import com.cookcook.main.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Paint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,6 +77,16 @@ public class ShoppingListAdapter extends ArrayAdapter<Model>{
 		ViewHolder viewHolder=(ViewHolder)rowView.getTag();
 		viewHolder.text.setText(list.get(position).getName());
 		viewHolder.check.setChecked(list.get(position).isSelected());
+		
+		//Make strike through on text if checkbox is selected
+		if (list.get(position).isSelected())
+		{
+			viewHolder.text.setPaintFlags(viewHolder.text.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+		}
+		else
+		{
+			viewHolder.text.setPaintFlags(viewHolder.text.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+		}
 		return rowView;
 	}
 	

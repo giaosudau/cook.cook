@@ -67,7 +67,6 @@
             	android:layout_width="wrap_content"
             	android:layout_marginTop="5dp"
             	android:layout_toRightOf="@id/btn_remove_checked_shopping_list"
-            	android:layout_marginRight="5dp"
-            	android:onClick="OnClick_Share_Checked_Shopping_List"/>
+            	android:layout_marginRight="5dp"/>
     </RelativeLayout>
 </LinearLayout>
