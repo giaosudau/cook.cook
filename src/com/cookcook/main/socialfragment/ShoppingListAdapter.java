@@ -52,7 +52,15 @@ public class ShoppingListAdapter extends ArrayAdapter<Model>{
 					// TODO Auto-generated method stub
 					Model element = (Model)viewHolder.check.getTag();
 					element.setSelected(buttonView.isChecked());
-					
+					//Make strike through on text if checkbox is selected
+					if (buttonView.isChecked())
+					{
+						viewHolder.text.setPaintFlags(viewHolder.text.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+					}
+					else
+					{
+						viewHolder.text.setPaintFlags(viewHolder.text.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+					}
 				}
 			});
 			rowView.setTag(viewHolder);

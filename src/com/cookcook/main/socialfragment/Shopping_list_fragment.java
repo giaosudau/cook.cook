@@ -26,6 +26,7 @@ public class Shopping_list_fragment extends Fragment{
 	public ArrayList<Model> list_model =new ArrayList<Model>();
 	ListView list;
 	ShoppingListAdapter adapter;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -57,19 +58,7 @@ public class Shopping_list_fragment extends Fragment{
 //		list.setOnItemClickListener();
         return rootView;
 	}
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		// TODO Auto-generated method stub
-//		super.onCreate(savedInstanceState);
-//		 setContentView(R.layout.shopping_list_layout);
-//			list = (ListView)findViewById(R.id.list_shopping_list);
-//			
-//			Model element = new Model("com");
-//			list_model.add(element);
-//			adapter = new ShoppingListAdapter(this, list_model);
-//			list.setAdapter(adapter);
-////			list.setOnItemClickListener(new Shopping_List_Item_Listener());
-//	}
+
 	private final OnClickListener OnClick_Add_Item_Shopping_List = new OnClickListener() 
 	{
 		@Override
@@ -132,7 +121,7 @@ public class Shopping_list_fragment extends Fragment{
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			for (int i=0; i< list_model.size(); i++)
+			for (int i= list_model.size()-1 ; i >=0 ; i--)
 			{
 				if (list_model.get(i).getSelected() ==true)
 				{
