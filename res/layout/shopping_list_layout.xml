@@ -3,61 +3,51 @@
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-    <ScrollView 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/content_shoppping_list"
-        android:layout_weight="1">
-        <LinearLayout 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <RelativeLayout 
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:background="#242424"
-		        android:orientation="horizontal"
-		        android:layout_marginBottom="5dp"
-		        >
-		        <Button android:id="@+id/btn_add_item_shopping_list"
-		            	android:text="@string/btn_add_item_shopping_list"
-		            	android:layout_height="wrap_content"
-		            	android:layout_width="wrap_content"
-		            	android:layout_marginTop="5dp"
-		            	android:layout_marginLeft="5dp"
-		            	android:onClick="OnClick_Add_Item_Shopping_List"/>
-		        
-		        <Button
-		            android:id="@+id/btn_select_all_shopping_list"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_marginTop="5dp"
-		            android:layout_toRightOf="@id/btn_add_item_shopping_list"
-		            android:text="@string/btn_select_all_shopping_list" 
-		            android:onClick="OnClick_Select_All_Shopping_List"/>
-		        
-		        <Button 
-		            android:id="@+id/btn_deselect_all_shopping_list"
-	            	android:text="@string/btn_deselect_all_shopping_list"
-	            	android:layout_height="wrap_content"
-	            	android:layout_width="wrap_content"
-	            	android:layout_marginTop="5dp"
-	            	android:layout_toRightOf="@id/btn_select_all_shopping_list"
-	            	android:layout_marginRight="5dp"
-	            	android:onClick="OnClick_Deselect_All_Shopping_List"/>
-		    </RelativeLayout>
-            <ListView 
-                android:id="@+id/list_shopping_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:divider="@android:color/black"
-        		android:dividerHeight="1dp">
-                
-            </ListView>
-        </LinearLayout>
+     <LinearLayout 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_weight="1"
+         android:orientation="vertical">
+         <RelativeLayout 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="#242424"
+       android:orientation="horizontal"
+       android:layout_marginBottom="5dp">
+	       <Button android:id="@+id/btn_add_item_shopping_list"
+	           	android:text="@string/btn_add_item_shopping_list"
+	           	android:layout_height="wrap_content"
+	           	android:layout_width="wrap_content"
+	           	android:layout_marginTop="5dp"
+	           	android:layout_marginLeft="5dp"/>
+	       
+	       <Button
+	           android:id="@+id/btn_select_all_shopping_list"
+	           android:layout_width="wrap_content"
+	           android:layout_height="wrap_content"
+	           android:layout_marginTop="5dp"
+	           android:layout_toRightOf="@id/btn_add_item_shopping_list"
+	           android:text="@string/btn_select_all_shopping_list"/>
+	       
+	       <Button 
+	           android:id="@+id/btn_deselect_all_shopping_list"
+	          	android:text="@string/btn_deselect_all_shopping_list"
+	          	android:layout_height="wrap_content"
+	          	android:layout_width="wrap_content"
+	          	android:layout_marginTop="5dp"
+	          	android:layout_toRightOf="@id/btn_select_all_shopping_list"
+	          	android:layout_marginRight="5dp"/>							
+  		 </RelativeLayout>
+         <ListView 
+             android:id="@+id/list_shopping_list"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:divider="@android:color/black"
+     		android:dividerHeight="1dp">
+             
+         </ListView>
+     </LinearLayout>
         
-    </ScrollView>
-
     <RelativeLayout 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,8 +59,7 @@
             	android:layout_height="wrap_content"
             	android:layout_width="wrap_content"
             	android:layout_marginTop="5dp"
-            	android:layout_marginLeft="5dp"
-            	android:onClick="OnClick_Remove_Checked_Shopping_List"/>
+            	android:layout_marginLeft="5dp"/>
         
         <Button android:id="@+id/btn_share_checked_shopping_list"
             	android:text="@string/btn_share_checked_shopping_list"

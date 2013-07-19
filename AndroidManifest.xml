@@ -25,7 +25,7 @@
          <activity
             android:name="com.cookcook.main.navi_drawer.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -33,7 +33,9 @@
         </activity>
         
          <!-- Shopping List -->
-         <activity android:name="com.cookcook.main.socialfragment.Shopping_list_fragment"/>
+         <activity android:name="com.cookcook.main.socialfragment.Shopping_list_fragment">
+            
+         </activity>
     </application>
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
     
