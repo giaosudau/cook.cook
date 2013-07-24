@@ -41,4 +41,25 @@
     <string name="btn_add_item_shopping_list">Add Item</string>
     <string name="btn_select_all_shopping_list">Select All</string>
     <string name="btn_deselect_all_shopping_list">Deselect All</string>
+    
+    <!--  String for meal planner -->
+    <string name="btn_add_new_week">Saved meal plan weeks.Press here to create a new plan.</string>
+    
+    <string-array name="week_array">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+    
+    <string-array name="meal_plan_array">
+        <item>Breakfast</item>
+        <item>MidMorning</item>
+        <item>Lunch</item>
+        <item>MidAfternoon</item>
+        <item>Dinner</item>
+    </string-array>
 </resources>

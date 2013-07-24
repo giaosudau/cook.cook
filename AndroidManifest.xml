@@ -34,7 +34,14 @@
         
          <!-- Shopping List -->
          <activity android:name="com.cookcook.main.socialfragment.Shopping_list_fragment">
-            
+         </activity>
+         
+         <!-- Meal Planner -->
+         <activity android:name="com.cookcook.main.socialfragment.Meal_planner_fragment">
+         </activity>
+         
+         <!-- Meal Planner Week Planning -->
+         <activity android:name="com.cookcook.main.socialfragment.Meal_planner_week_planning_fragment">
          </activity>
     </application>
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>

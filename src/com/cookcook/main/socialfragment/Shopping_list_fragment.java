@@ -23,7 +23,7 @@ import com.cookcook.main.R;
 
 public class Shopping_list_fragment extends Fragment{
 
-	public ArrayList<Model> list_model =new ArrayList<Model>();
+	public static ArrayList<Model> list_model =new ArrayList<Model>();
 	ListView list;
 	ShoppingListAdapter adapter;
 	

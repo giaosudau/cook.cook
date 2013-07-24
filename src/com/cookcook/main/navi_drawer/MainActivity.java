@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.cookcook.main.R;
+import com.cookcook.main.socialfragment.Meal_planner_fragment;
 import com.cookcook.main.socialfragment.Shopping_list_fragment;
 //import com.actionbarsherlock.app.SherlockActivity;
 
@@ -12,6 +13,7 @@ import com.cookcook.main.socialfragment.Shopping_list_fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -84,9 +86,21 @@ public class MainActivity extends SherlockFragmentActivity {
 	}
 	private void selectItem(int position)
 	{
+		Log.v("You press item:", ""+position);
+		Fragment fragment = null;
+		if (position == 11)
+		{
+			//Choose meal planner
+			fragment = new Meal_planner_fragment();
+		}
+		else if (position == 12)
+		{
+			//Choose shopping list
+			fragment = new Shopping_list_fragment();
+//		    Bundle args = new Bundle();
+		}
 //     update the main content by replacing fragments
-      Fragment fragment = new Shopping_list_fragment();
-      Bundle args = new Bundle();
+//      Bundle args = new Bundle();
 //      args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
 //      fragment.setArguments(args);
 
