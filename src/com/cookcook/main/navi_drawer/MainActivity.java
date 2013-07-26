@@ -6,6 +6,7 @@ import java.util.List;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.cookcook.main.R;
 import com.cookcook.main.socialfragment.Meal_planner_fragment;
+import com.cookcook.main.socialfragment.My_Recipe_fragment;
 import com.cookcook.main.socialfragment.Shopping_list_fragment;
 //import com.actionbarsherlock.app.SherlockActivity;
 
@@ -98,6 +99,10 @@ public class MainActivity extends SherlockFragmentActivity {
 			//Choose shopping list
 			fragment = new Shopping_list_fragment();
 //		    Bundle args = new Bundle();
+		}
+		else if (position == 10)
+		{
+			fragment = new My_Recipe_fragment();
 		}
 //     update the main content by replacing fragments
 //      Bundle args = new Bundle();
