@@ -65,54 +65,61 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 			items.add(new ArrayList<Item>());
 			adapter_day.add(new SimpleTextArrayAdapter(getActivity(), items.get(i)));
 		}
+		int pos = 0;
 		//Monday
 		Button btn_add_item_meal_planner_mon =(Button)rootView.findViewById(R.id.btn_add_item_meal_planner_mon);
 		btn_add_item_meal_planner_mon.setOnClickListener(OnClick_Add_New_Monday_Plan);
 		list_mon = (ListView)rootView.findViewById(R.id.week_planning_list_mon);
-		adapter_day.set(0, new SimpleTextArrayAdapter(getActivity(), items.get(0))) ;
-	    list_mon.setAdapter(adapter_day.get(0));
+		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
+	    list_mon.setAdapter(adapter_day.get(pos));
 	    
+	    pos+=1;
 		//Tuesday
 		Button btn_add_item_meal_planner_tue =(Button)rootView.findViewById(R.id.btn_add_item_meal_planner_tue);
 		btn_add_item_meal_planner_tue.setOnClickListener(OnClick_Add_New_Tuesday_Plan);
 		list_tue = (ListView)rootView.findViewById(R.id.week_planning_list_tue);
-		adapter_day.set(1, new SimpleTextArrayAdapter(getActivity(), items.get(1))) ;
-	    list_tue.setAdapter(adapter_day.get(1));
+		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
+	    list_tue.setAdapter(adapter_day.get(pos));
 	    
+	    pos+=1;
 		//Wednesday
 		Button btn_add_item_meal_planner_wed =(Button)rootView.findViewById(R.id.btn_add_item_meal_planner_wed);
 		btn_add_item_meal_planner_wed.setOnClickListener(OnClick_Add_New_Wednesday_Plan);
 		list_wed = (ListView)rootView.findViewById(R.id.week_planning_list_wed);
-		adapter_day.set(1, new SimpleTextArrayAdapter(getActivity(), items.get(0))) ;
-	    list_wed.setAdapter(adapter_day.get(0));
+		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
+	    list_wed.setAdapter(adapter_day.get(pos));
 	    
+	    pos+=1;
 		//Thursday
 		Button btn_add_item_meal_planner_thu =(Button)rootView.findViewById(R.id.btn_add_item_meal_planner_thu);
 		btn_add_item_meal_planner_thu.setOnClickListener(OnClick_Add_New_Thursday_Plan);
 		list_thu = (ListView)rootView.findViewById(R.id.week_planning_list_thu);
-		adapter_day.set(1, new SimpleTextArrayAdapter(getActivity(), items.get(0))) ;
-	    list_thu.setAdapter(adapter_day.get(0));
+		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
+	    list_thu.setAdapter(adapter_day.get(pos));
 	    
+	    pos+=1;
 		//Friday
 		Button btn_add_item_meal_planner_fri =(Button)rootView.findViewById(R.id.btn_add_item_meal_planner_fri);
 		btn_add_item_meal_planner_fri.setOnClickListener(OnClick_Add_New_Friday_Plan);
 		list_fri = (ListView)rootView.findViewById(R.id.week_planning_list_fri);
-		adapter_day.set(1, new SimpleTextArrayAdapter(getActivity(), items.get(0))) ;
-	    list_fri.setAdapter(adapter_day.get(0));
+		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
+	    list_fri.setAdapter(adapter_day.get(pos));
 	    
+	    pos+=1;
 		//Saturday
 		Button btn_add_item_meal_planner_sat =(Button)rootView.findViewById(R.id.btn_add_item_meal_planner_sat);
 		btn_add_item_meal_planner_sat.setOnClickListener(OnClick_Add_New_Saturday_Plan);
 		list_sat = (ListView)rootView.findViewById(R.id.week_planning_list_sat);
-		adapter_day.set(1, new SimpleTextArrayAdapter(getActivity(), items.get(0))) ;
-		list_sat.setAdapter(adapter_day.get(0));
+		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
+		list_sat.setAdapter(adapter_day.get(pos));
 	    
+		pos+=1;
 		//Sunday
 		Button btn_add_item_meal_planner_sun =(Button)rootView.findViewById(R.id.btn_add_item_meal_planner_sun);
 		btn_add_item_meal_planner_sun.setOnClickListener(OnClick_Add_New_Sunday_Plan);
 		list_sun = (ListView)rootView.findViewById(R.id.week_planning_list_sun);
-		adapter_day.set(1, new SimpleTextArrayAdapter(getActivity(), items.get(0))) ;
-		list_sun.setAdapter(adapter_day.get(0));
+		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
+		list_sun.setAdapter(adapter_day.get(pos));
 	    
 //		list.setOnItemClickListener(onItemClick);
 //		ListView list_week = (ListView)rootView.findViewById(R.id.week_planning_list_all_week);
