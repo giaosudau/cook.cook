@@ -5,11 +5,13 @@ import java.util.List;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.cookcook.main.R;
+import com.cookcook.main.database.DBAdapter;
 import com.cookcook.main.socialfragment.Meal_planner_fragment;
 import com.cookcook.main.socialfragment.Shopping_list_fragment;
 //import com.actionbarsherlock.app.SherlockActivity;
 
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -22,6 +24,7 @@ public class MainActivity extends SherlockFragmentActivity {
 
 	DrawerLayout mDrawerLayout;
 	ListView mDrawerList;
+	private DBAdapter mDb;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,6 +73,17 @@ public class MainActivity extends SherlockFragmentActivity {
 		mDrawerList.setOnItemClickListener(new Drawer_List_Item_Listener());
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
+		
+		mDb = new DBAdapter(this);
+		mDb.open();
+//		mDb.DeleteAll();
+//		mDb.CreateShoppingList("com", 0);
+//		mDb.CreateShoppingList("canh", 1);
+//		mDb.deleteShoppingList("canh");
+//		mDb.ModifyShoppingList("canh", 0);
+//		mDb.CreateWeekMealPlanner("week1");
+//		mDb.deleteWeekMealPlanner("week1");
+		mDb.close();
 	}
 
 //	@Override

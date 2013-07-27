@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -26,10 +27,10 @@ import android.view.View.OnClickListener;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.cookcook.main.R;
+import com.cookcook.main.database.DBAdapter;
 
-public class Meal_planner_week_planning_fragment extends SherlockFragment{
+public class Meal_planner_week_planning_fragment extends  SherlockFragment{
 
-	public static ArrayList<String> list_data =new ArrayList<String>();
 	ListView list_mon;
 	ListView list_tue;
 	ListView list_wed;
@@ -53,7 +54,12 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 //	List<Item> items_fri = new ArrayList<Item>();
 //	List<Item> items_sat = new ArrayList<Item>();
 //	List<Item> items_sun = new ArrayList<Item>();
-	
+	DBAdapter mDb;
+	public static int week_id;
+	public Meal_planner_week_planning_fragment(int week_id)
+	{
+		this.week_id = week_id;
+	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -65,6 +71,38 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 			items.add(new ArrayList<Item>());
 			adapter_day.add(new SimpleTextArrayAdapter(getActivity(), items.get(i)));
 		}
+		
+		mDb = new DBAdapter(getActivity());
+		Cursor cursor;
+		mDb.open();
+		List<Item> day_items;
+		for (int i=0; i<7; i++)
+		{
+			cursor = mDb.getDailyMealPlanners(week_id, getResources().getStringArray(R.array.week_array)[i]);
+			if (cursor.getCount() > 0)
+			{
+				day_items = new ArrayList<Item>();
+				for( int j=0; j< 5; j++)
+				{
+					cursor = mDb.getTimeDailyMealPlanners(week_id, getResources().getStringArray(R.array.week_array)[i], getResources().getStringArray(R.array.meal_plan_array)[j]);
+					if (cursor.getCount() > 0)
+					{
+						day_items.add(new TextHeader(getResources().getStringArray(R.array.meal_plan_array)[j]));
+						cursor.moveToFirst();
+						for (int k=0; k < cursor.getCount(); k++)
+						{
+							String name  = cursor.getString(0);
+							day_items.add(new TextListItem(name));
+							if (! cursor.isLast())
+								cursor.moveToNext();
+						}
+					}
+				}
+				items.set(i, day_items);
+			}
+		}
+		mDb.close();
+		
 		int pos = 0;
 		//Monday
 		Button btn_add_item_meal_planner_mon =(Button)rootView.findViewById(R.id.btn_add_item_meal_planner_mon);
@@ -72,6 +110,7 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 		list_mon = (ListView)rootView.findViewById(R.id.week_planning_list_mon);
 		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
 	    list_mon.setAdapter(adapter_day.get(pos));
+	    Helper.getListViewSize(list_mon);
 	    
 	    pos+=1;
 		//Tuesday
@@ -80,6 +119,7 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 		list_tue = (ListView)rootView.findViewById(R.id.week_planning_list_tue);
 		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
 	    list_tue.setAdapter(adapter_day.get(pos));
+	    Helper.getListViewSize(list_tue);
 	    
 	    pos+=1;
 		//Wednesday
@@ -88,6 +128,7 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 		list_wed = (ListView)rootView.findViewById(R.id.week_planning_list_wed);
 		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
 	    list_wed.setAdapter(adapter_day.get(pos));
+	    Helper.getListViewSize(list_wed);
 	    
 	    pos+=1;
 		//Thursday
@@ -96,6 +137,7 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 		list_thu = (ListView)rootView.findViewById(R.id.week_planning_list_thu);
 		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
 	    list_thu.setAdapter(adapter_day.get(pos));
+	    Helper.getListViewSize(list_thu);
 	    
 	    pos+=1;
 		//Friday
@@ -104,6 +146,7 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 		list_fri = (ListView)rootView.findViewById(R.id.week_planning_list_fri);
 		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
 	    list_fri.setAdapter(adapter_day.get(pos));
+	    Helper.getListViewSize(list_fri);
 	    
 	    pos+=1;
 		//Saturday
@@ -112,6 +155,7 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 		list_sat = (ListView)rootView.findViewById(R.id.week_planning_list_sat);
 		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
 		list_sat.setAdapter(adapter_day.get(pos));
+		Helper.getListViewSize(list_sat);
 	    
 		pos+=1;
 		//Sunday
@@ -120,7 +164,7 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 		list_sun = (ListView)rootView.findViewById(R.id.week_planning_list_sun);
 		adapter_day.set(pos, new SimpleTextArrayAdapter(getActivity(), items.get(pos))) ;
 		list_sun.setAdapter(adapter_day.get(pos));
-	    
+		Helper.getListViewSize(list_sun);
 //		list.setOnItemClickListener(onItemClick);
 //		ListView list_week = (ListView)rootView.findViewById(R.id.week_planning_list_all_week);
 //		MealPlanAdapter adapter = new MealPlanAdapter(getActivity(), getResources().getStringArray(R.array.week_array));
@@ -311,6 +355,7 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 			{
 				data_item.add(add_pos, new TextListItem(value));
 			}
+			
 			items.set(day_number, data_item);
 //			adapter_day.set(day_number, new SimpleTextArrayAdapter(getActivity(), data_item));
 			adapter_day.get(day_number).notifyDataSetChanged();
@@ -323,6 +368,11 @@ public class Meal_planner_week_planning_fragment extends SherlockFragment{
 //			adapter_day.set(day_number, new SimpleTextArrayAdapter(getActivity(), data_item));
 			adapter_day.get(day_number).notifyDataSetChanged();
 		}
+		mDb.open();
+		
+		mDb.CreateDailyMealPlanner(week_id, day, time, value);
+		Log.v("createnew meal","day:"+day+";;time:"+time+";;value:"+value);
+		mDb.close();
 		Helper.getListViewSize(listview);
 		
 	}

@@ -7,6 +7,7 @@ import java.util.List;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -20,19 +21,38 @@ import android.widget.ListView;
 import android.view.View.OnClickListener;
 
 import com.cookcook.main.R;
+import com.cookcook.main.database.DBAdapter;
 
 public class Shopping_list_fragment extends Fragment{
 
 	public static ArrayList<Model> list_model =new ArrayList<Model>();
 	ListView list;
 	ShoppingListAdapter adapter;
+	DBAdapter mDb;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View rootView = inflater.inflate(R.layout.shopping_list_layout, container, false);
-		
+		list_model =new ArrayList<Model>();
+		mDb = new DBAdapter(getActivity());
+		mDb.open();
+		Cursor cursor = mDb.getShoppingList();
+		if (cursor.getCount() != 0)
+		{
+			cursor.moveToFirst();
+			for (int i=0; i< cursor.getCount(); i++)
+			{
+				Log.v("====meal_create===", ""+ cursor.getPosition());
+				String name  = cursor.getString(0);
+				Integer check = cursor.getInt(1);
+				list_model.add(new Model(name, check));
+				if (! cursor.isLast())
+					cursor.moveToNext();
+			}
+		}
+		mDb.close();
 		//Button Add Item
 		Button btn_add_item_shopping_list =(Button)rootView.findViewById(R.id.btn_add_item_shopping_list);
 		btn_add_item_shopping_list.setOnClickListener(OnClick_Add_Item_Shopping_List);
@@ -79,8 +99,11 @@ public class Shopping_list_fragment extends Fragment{
 				public void onClick(DialogInterface dialog, int which) {
 					// TODO Auto-generated method stub
 					String value = input.getText().toString();
-					Model element = new Model(value);
+					Model element = new Model(value,0);
 					list_model.add(element);
+					mDb.open();
+					mDb.CreateShoppingList(value, 0);
+					mDb.close();
 					adapter.notifyDataSetChanged();
 				}
 			});
@@ -95,10 +118,14 @@ public class Shopping_list_fragment extends Fragment{
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
+			mDb.open();
 			for (int i=0; i< list_model.size(); i++)
 			{
 				list_model.get(i).setSelected(true);
+				mDb.ModifyShoppingList(list_model.get(i).getName(), 1);
+				
 			}
+			mDb.close();
 			adapter.notifyDataSetChanged();
 		}
 	};
@@ -108,10 +135,13 @@ public class Shopping_list_fragment extends Fragment{
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
+			mDb.open();
 			for (int i=0; i< list_model.size(); i++)
 			{
 				list_model.get(i).setSelected(false);
+				mDb.ModifyShoppingList(list_model.get(i).getName(), 0);
 			}
+			mDb.close();
 			adapter.notifyDataSetChanged();
 		}
 	};
@@ -121,13 +151,16 @@ public class Shopping_list_fragment extends Fragment{
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
+			mDb.open();
 			for (int i= list_model.size()-1 ; i >=0 ; i--)
 			{
 				if (list_model.get(i).getSelected() ==true)
 				{
+					mDb.deleteShoppingList(list_model.get(i).getName());
 					list_model.remove(i);
 				}
 			}
+			mDb.close();
 			adapter.notifyDataSetChanged();
 		}
 	};

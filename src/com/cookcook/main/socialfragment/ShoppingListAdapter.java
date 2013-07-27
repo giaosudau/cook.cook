@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cookcook.main.R;
+import com.cookcook.main.database.DBAdapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -22,7 +23,7 @@ public class ShoppingListAdapter extends ArrayAdapter<Model>{
 	
 	private final Activity context;
 	private  ArrayList<Model> list;
-	
+	DBAdapter mDb;
 	static class ViewHolder {
 	    public TextView text;
 	    public CheckBox check;
@@ -32,6 +33,7 @@ public class ShoppingListAdapter extends ArrayAdapter<Model>{
 		super(context, R.layout.shopping_list_item, list);
 		this.context = context;
 		this.list = list;
+		mDb = new DBAdapter(context);
 	}
 	
 	@Override
@@ -53,14 +55,18 @@ public class ShoppingListAdapter extends ArrayAdapter<Model>{
 					Model element = (Model)viewHolder.check.getTag();
 					element.setSelected(buttonView.isChecked());
 					//Make strike through on text if checkbox is selected
+					mDb.open();
 					if (buttonView.isChecked())
 					{
+						mDb.ModifyShoppingList(element.getName(), 1);
 						viewHolder.text.setPaintFlags(viewHolder.text.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 					}
 					else
 					{
+						mDb.ModifyShoppingList(element.getName(), 0);
 						viewHolder.text.setPaintFlags(viewHolder.text.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
 					}
+					mDb.close();
 				}
 			});
 			rowView.setTag(viewHolder);
@@ -78,8 +84,11 @@ public class ShoppingListAdapter extends ArrayAdapter<Model>{
 				Model element = (Model)viewHold.check.getTag();
 				element.setSelected(!((Model)viewHold.check.getTag()).getSelected());
 				viewHold.check.setChecked(element.getSelected());
-//				Toast.makeText(context, "You choose:"+((Model)viewHold.check.getTag()).getName()+";isChecked:"+((Model)viewHold.check.getTag()).getSelected(), Toast.LENGTH_SHORT).show();
 				
+				mDb.open();
+				mDb.ModifyShoppingList(element.getName(), element.getSelected()== true?1:0);
+//				Toast.makeText(context, "You choose:"+((Model)viewHold.check.getTag()).getName()+";isChecked:"+((Model)viewHold.check.getTag()).getSelected(), Toast.LENGTH_SHORT).show();
+				mDb.close();
 			}
 		});
 		ViewHolder viewHolder=(ViewHolder)rowView.getTag();
