@@ -31,10 +31,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- My Recipe  -->
+         <activity android:name="com.cookcook.main.socialfragment.My_Recipe_fragment">
+         </activity>
+         <activity android:name="com.cookcook.main.socialfragment.My_Recipe_Builder">
+         </activity>
         
          <!-- Shopping List -->
          <activity android:name="com.cookcook.main.socialfragment.Shopping_list_fragment">
          </activity>
+         
          
          <!-- Meal Planner -->
          <activity android:name="com.cookcook.main.socialfragment.Meal_planner_fragment">

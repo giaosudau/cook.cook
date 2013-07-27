@@ -28,15 +28,10 @@ proguard/
 *.iws
 .idea/
  
-# R java
-R.java
-libraries/facebook/bin
-libraries/actionbarsherlock/bin
-libraries/actionbarsherlock/gen
-libraries/facebook/bin
-libraries/facebook/gen
+libraries/facebook/bin/
+libraries/actionbarsherlock/bin/
+libraries/actionbarsherlock/gen/
+libraries/facebook/bin/
+libraries/facebook/gen/
 libraries/facebook/project.properties
-gen
-bin
 libraries/actionbarsherlock/project.properties
-project.properties
