@@ -36,6 +36,7 @@ public class Shopping_list_fragment extends Fragment{
 		// TODO Auto-generated method stub
 		View rootView = inflater.inflate(R.layout.shopping_list_layout, container, false);
 		list_model =new ArrayList<Model>();
+		Log.v("===error===","it ok");
 		mDb = new DBAdapter(getActivity());
 		mDb.open();
 		Cursor cursor = mDb.getShoppingList();
@@ -53,6 +54,7 @@ public class Shopping_list_fragment extends Fragment{
 			}
 		}
 		mDb.close();
+		Log.v("===error===","it ok222");
 		//Button Add Item
 		Button btn_add_item_shopping_list =(Button)rootView.findViewById(R.id.btn_add_item_shopping_list);
 		btn_add_item_shopping_list.setOnClickListener(OnClick_Add_Item_Shopping_List);

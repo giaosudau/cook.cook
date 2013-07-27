@@ -64,6 +64,7 @@ public class Meal_planner_week_planning_fragment extends  SherlockFragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		Log.v("===week planner===","it ok");
 		View rootView = inflater.inflate(R.layout.meal_planner_week_planning_layout, container, false);
 		
 		for( int i=0; i<7 ;i++)

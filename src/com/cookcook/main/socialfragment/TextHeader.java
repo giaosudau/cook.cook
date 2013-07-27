@@ -1,6 +1,8 @@
 package com.cookcook.main.socialfragment;
 
 import com.cookcook.main.socialfragment.SimpleTextArrayAdapter.RowType;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,6 +30,7 @@ public class TextHeader implements Item {
     @Override
     public View getView(LayoutInflater inflater, View convertView) {
         View view;
+        Log.v("====textheader===", "getview:");
         if (convertView == null) {
             view = inflater.inflate(R.layout.simple_list_header_item, null);
             // Do some initialization
@@ -39,7 +42,7 @@ public class TextHeader implements Item {
         text.setText(name);
         ImageView image1 = (ImageView) view.findViewById(R.id.list_header_item_img);
         image1.setImageResource(icon);
-
+        Log.v("====textheader===", "getview1:");
         return view;
     }
 
