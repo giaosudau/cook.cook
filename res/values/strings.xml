@@ -62,4 +62,6 @@
         <item>MidAfternoon</item>
         <item>Dinner</item>
     </string-array>
+    <string name="APP_ID">202639699891215</string>
+
 </resources>

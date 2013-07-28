@@ -9,6 +9,7 @@ import com.cookcook.main.database.DBAdapter;
 import com.cookcook.main.socialfragment.Meal_planner_fragment;
 import com.cookcook.main.socialfragment.My_Recipe_fragment;
 import com.cookcook.main.socialfragment.Shopping_list_fragment;
+import com.cookcook.main.socialfragment.Login_Facebook;
 //import com.actionbarsherlock.app.SherlockActivity;
 
 
@@ -117,6 +118,10 @@ public class MainActivity extends SherlockFragmentActivity {
 		else if (position == 10)
 		{
 			fragment = new My_Recipe_fragment();
+		}
+		else if(position == 9)
+		{
+			fragment = new Login_Facebook();
 		}
 //     update the main content by replacing fragments
 //      Bundle args = new Bundle();
