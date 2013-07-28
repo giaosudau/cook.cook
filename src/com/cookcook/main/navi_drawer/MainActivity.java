@@ -13,6 +13,7 @@ import com.cookcook.main.socialfragment.Login_Facebook;
 //import com.actionbarsherlock.app.SherlockActivity;
 
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -78,13 +79,40 @@ public class MainActivity extends SherlockFragmentActivity {
 		
 		mDb = new DBAdapter(this);
 		mDb.open();
-//		mDb.DeleteAll();
+		mDb.DeleteAll();
 //		mDb.CreateShoppingList("com", 0);
 //		mDb.CreateShoppingList("canh", 1);
 //		mDb.deleteShoppingList("canh");
 //		mDb.ModifyShoppingList("canh", 0);
 //		mDb.CreateWeekMealPlanner("week1");
 //		mDb.deleteWeekMealPlanner("week1");
+		
+//		mDb.CreateNewRecipe("com", 10, 2, true, "");
+//		Cursor cursor = mDb.getSelectedRecipe("com");
+//		int id=0;
+//		if (cursor.getCount() != 0)
+//		{
+//			cursor.moveToFirst();
+//			Log.v("====get recipe id===", ""+ cursor.getPosition());
+//			id = cursor.getInt(0);
+//		}
+//    	if (id != 0)
+//    	{
+//    		Log.v("insert to recipe", "insert");
+//    		mDb.CreateNewIngredient(id, "nguyen lieu", 1, 0);
+//    		Log.v("insert to recipe", "insert1");
+//    		mDb.CreateNewIngredient(id, "ca", 1, 1);
+//    		Log.v("insert to recipe", "insert2");
+//    		mDb.CreateNewDirection(id, "nau len", 1);
+//    		Log.v("update to recipe", "update");
+//    		mDb.ModifyIngredient(id, "ca kho to", 1, 1);
+//    		Log.v("update to recipe", "update1");
+//    		mDb.ModifyDirection(id, "nuong len", 1);
+//    		Log.v("update to recipe", "update2");
+//    		mDb.ModifyRecipe(id, "com ga", 9, 3, false, "1");
+//    		Log.v("delete  recipe", "delete");
+//    		mDb.DeleteRecipe(id);
+//    	}
 		mDb.close();
 	}
 
