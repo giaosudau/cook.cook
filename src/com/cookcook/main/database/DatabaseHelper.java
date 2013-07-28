@@ -42,18 +42,40 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		public static final String COLLUMN_MEAL = "meal";
 	}
 	
-	//Will do it later
+	
+	//Define table ingredient_require for recipe
+	public static abstract class INGREDIENT_REQUIRE_ENTRY implements BaseColumns
+	{
+		public static final String TABLE_NAME = "ingredient_require";
+		public static final String COLLUMN_NAME = "name";
+		public static final String COLLUMN_HEADER = "is_header";
+		public static final String COLLUMN_POS = "position";
+		public static final String COLLUMN_RECIPE_ID = "recipe_id";
+	}
+	
+	//Define table direction_step for recipe
+		public static abstract class DIRECTION_STEP_ENTRY implements BaseColumns
+		{
+			public static final String TABLE_NAME = "direction_step";
+			public static final String COLLUMN_NAME = "name";
+			public static final String COLLUMN_STEP = "step";
+			public static final String COLLUMN_RECIPE_ID = "recipe_id";
+		}
+	
+	//Define table my_recipe
 	public static abstract class MY_RECIPE_ENTRY implements BaseColumns
 	{
-//		public static final String TABLE_NAME = "my_recipe";
-//		public static final String COLLUMN_WEEK_ID = "week_id";
-//		public static final String COLLUMN_DAY = "day";
-//		public static final String COLLUMN_TIME = "time";
-//		public static final String COLLUMN_meal = "meal";
+		public static final String TABLE_NAME = "my_recipe";
+		public static final String COLLUMN_NAME = "name";
+		public static final String COLLUMN_PREPARE_TIME = "prepare_time";
+		public static final String COLLUMN_SERVING_NUMBER = "serving_number";
+		public static final String COLLUMN_DRAFT = "draft";
+		public static final String COLLUMN_CATEGORY = "category";
 	}
 	
 	private static final String INTEGER_TYPE = " INTEGER";
 	private static final String TEXT_TYPE = " TEXT";
+	private static final String BOOLEAN_TYPE = " BOOLEAN";
 	private static final String COMMA_SEP = ",";
 	
 	private static final String CREATE_TABLE_SHOPPING_LIST =
@@ -78,6 +100,30 @@ public class DatabaseHelper extends SQLiteOpenHelper
 			DAILY_MEAL_PLANNER_ENTRY.COLLUMN_TIME	 + TEXT_TYPE	+ COMMA_SEP +
 			DAILY_MEAL_PLANNER_ENTRY.COLLUMN_MEAL	 + TEXT_TYPE	+ " )";
 	
+	private static final String CREATE_TABLE_INGREDIENT_REQUIRE = 
+			"CREATE TABLE " + INGREDIENT_REQUIRE_ENTRY.TABLE_NAME + " (" +
+			INGREDIENT_REQUIRE_ENTRY._ID 			 		+ " INTEGER PRIMARY KEY," +
+			INGREDIENT_REQUIRE_ENTRY.COLLUMN_NAME 			+ TEXT_TYPE + COMMA_SEP +
+			INGREDIENT_REQUIRE_ENTRY.COLLUMN_HEADER	 		+ INTEGER_TYPE	+ COMMA_SEP +
+			INGREDIENT_REQUIRE_ENTRY.COLLUMN_POS	 		+ INTEGER_TYPE	+ COMMA_SEP +
+			INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID	 	+ INTEGER_TYPE	+ " )";
+	
+	private static final String CREATE_TABLE_DIRECTION_STEP = 
+			"CREATE TABLE " + DIRECTION_STEP_ENTRY.TABLE_NAME + " (" +
+			DIRECTION_STEP_ENTRY._ID 			 		+ " INTEGER PRIMARY KEY," +
+			DIRECTION_STEP_ENTRY.COLLUMN_NAME 			+ TEXT_TYPE + COMMA_SEP +
+			DIRECTION_STEP_ENTRY.COLLUMN_STEP			+ INTEGER_TYPE 	+ COMMA_SEP +
+			DIRECTION_STEP_ENTRY.COLLUMN_RECIPE_ID	 	+ INTEGER_TYPE	+ " )";
+	
+	private static final String CREATE_TABLE_MY_RECIPE = 
+			"CREATE TABLE " + MY_RECIPE_ENTRY.TABLE_NAME + " (" +
+			MY_RECIPE_ENTRY._ID 			 				+ " INTEGER PRIMARY KEY," +
+			MY_RECIPE_ENTRY.COLLUMN_NAME 					+ TEXT_TYPE + COMMA_SEP +
+			MY_RECIPE_ENTRY.COLLUMN_PREPARE_TIME			+ INTEGER_TYPE 	+ COMMA_SEP +
+			MY_RECIPE_ENTRY.COLLUMN_SERVING_NUMBER			+ INTEGER_TYPE 	+ COMMA_SEP +
+			MY_RECIPE_ENTRY.COLLUMN_DRAFT					+ BOOLEAN_TYPE 	+ COMMA_SEP +
+			MY_RECIPE_ENTRY.COLLUMN_CATEGORY	 			+ TEXT_TYPE	+ " )";
+	
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
@@ -88,7 +134,13 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		db.execSQL(CREATE_TABLE_WEEK_MEAL_PLANNER);
 		Log.v("===create====", "ok2");
 		db.execSQL(CREATE_TABLE_DAILY_WEEK_MEAL_PLANNER);
-		Log.v("===create====", "ok2");
+		Log.v("===create====", "ok3");
+		db.execSQL(CREATE_TABLE_INGREDIENT_REQUIRE);
+		Log.v("===create====", "ok4");
+		db.execSQL(CREATE_TABLE_DIRECTION_STEP);
+		Log.v("===create====", "ok5");
+		db.execSQL(CREATE_TABLE_MY_RECIPE);
+		Log.v("===create====", "ok6");
 	}
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -96,6 +148,10 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		db.execSQL("Drop table if exists "+ SHOPPING_LIST_ENTRY.TABLE_NAME);
 		db.execSQL("Drop table if exists "+ WEEK_MEAL_PLANNER_ENTRY.TABLE_NAME);
 		db.execSQL("Drop table if exists "+ DAILY_MEAL_PLANNER_ENTRY.TABLE_NAME);
+		
+		db.execSQL("Drop table if exists "+ INGREDIENT_REQUIRE_ENTRY.TABLE_NAME);
+		db.execSQL("Drop table if exists "+ DIRECTION_STEP_ENTRY.TABLE_NAME);
+		db.execSQL("Drop table if exists "+ MY_RECIPE_ENTRY.TABLE_NAME);
 		onCreate(db);
 	}
 	
