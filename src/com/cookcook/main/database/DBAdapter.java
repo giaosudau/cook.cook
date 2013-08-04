@@ -146,42 +146,26 @@ public class DBAdapter {
     //******************************************************
     //******************************************************
     
-    public long CreateNewRecipe(String name, int prepare_time, int serving_time, boolean draft, String category)
+    public long CreateNewRecipe(String name, String prepare_time, String serving_time, String category)
     {
     	ContentValues values = new ContentValues();
     	values.put(MY_RECIPE_ENTRY.COLLUMN_NAME , name);
     	values.put(MY_RECIPE_ENTRY.COLLUMN_PREPARE_TIME , prepare_time);
     	values.put(MY_RECIPE_ENTRY.COLLUMN_SERVING_NUMBER , serving_time);
-    	values.put(MY_RECIPE_ENTRY.COLLUMN_DRAFT , draft);
     	values.put(MY_RECIPE_ENTRY.COLLUMN_CATEGORY , category);
     	return mDb.insert(TABLE_RECIPE, null,values);
     }
     
-    public Boolean ModifyRecipe(int recipe_id, String name, int prepare_time, int serving_time, boolean draft, String category)
-    {
-    	ContentValues values = new ContentValues();
-    	values.put(MY_RECIPE_ENTRY.COLLUMN_NAME , name);
-    	values.put(MY_RECIPE_ENTRY.COLLUMN_PREPARE_TIME , prepare_time);
-    	values.put(MY_RECIPE_ENTRY.COLLUMN_SERVING_NUMBER , serving_time);
-    	values.put(MY_RECIPE_ENTRY.COLLUMN_DRAFT , draft);
-    	values.put(MY_RECIPE_ENTRY.COLLUMN_CATEGORY , category);
-    	
-    	String selection = MY_RECIPE_ENTRY._ID + "= " +  recipe_id  ;
-    	int count =  mDb.update(TABLE_RECIPE, values, selection, null);
-    	if (count > 0)
-    		return Boolean.TRUE;
-    	return Boolean.FALSE;
-    }
     
-    public Cursor getSelectedRecipe(String name)
+    public Cursor getSelectedRecipe(int  recipe_id)
     {
-    	String selection = MY_RECIPE_ENTRY.COLLUMN_NAME + " LIKE " +  "\"" + name + "\"";
-    	return mDb.query(TABLE_RECIPE, new String[] { MY_RECIPE_ENTRY._ID, MY_RECIPE_ENTRY.COLLUMN_NAME, MY_RECIPE_ENTRY.COLLUMN_PREPARE_TIME, MY_RECIPE_ENTRY.COLLUMN_SERVING_NUMBER, MY_RECIPE_ENTRY.COLLUMN_DRAFT, MY_RECIPE_ENTRY.COLLUMN_CATEGORY }, selection,null, null, null, null);
+    	String selection = MY_RECIPE_ENTRY._ID + " = " +   recipe_id ;
+    	return mDb.query(TABLE_RECIPE, new String[] { MY_RECIPE_ENTRY._ID, MY_RECIPE_ENTRY.COLLUMN_NAME, MY_RECIPE_ENTRY.COLLUMN_PREPARE_TIME, MY_RECIPE_ENTRY.COLLUMN_SERVING_NUMBER, MY_RECIPE_ENTRY.COLLUMN_CATEGORY }, selection,null, null, null, null);
     }
     
     public Cursor getAllRecipe()
     {
-    	return mDb.query(TABLE_RECIPE, new String[] { MY_RECIPE_ENTRY._ID, MY_RECIPE_ENTRY.COLLUMN_NAME, MY_RECIPE_ENTRY.COLLUMN_PREPARE_TIME, MY_RECIPE_ENTRY.COLLUMN_SERVING_NUMBER, MY_RECIPE_ENTRY.COLLUMN_DRAFT, MY_RECIPE_ENTRY.COLLUMN_CATEGORY  }, null,null, null, null, null);
+    	return mDb.query(TABLE_RECIPE, new String[] { MY_RECIPE_ENTRY._ID, MY_RECIPE_ENTRY.COLLUMN_NAME}, null,null, null, null, null);
     }
     
     public Boolean DeleteRecipe(int recipe_id)
@@ -191,27 +175,19 @@ public class DBAdapter {
         return mDb.delete(TABLE_RECIPE, MY_RECIPE_ENTRY._ID + " =" + recipe_id ,null)>0;
     }
     //Function for ingredient
-    public long CreateNewIngredient(Integer recipe_id, String name, int pos, int header)
+    public long CreateNewIngredient(Integer recipe_id, String name)
     {
     	ContentValues values = new ContentValues();
     	values.put(INGREDIENT_REQUIRE_ENTRY.COLLUMN_NAME , name);
-    	values.put(INGREDIENT_REQUIRE_ENTRY.COLLUMN_HEADER , header);
-    	values.put(INGREDIENT_REQUIRE_ENTRY.COLLUMN_POS , pos);
     	values.put(INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID , recipe_id);
     	return mDb.insert(TABLE_INGREDIENT_REQUIRE, null,values);
     }
-    
-    public Boolean ModifyIngredient(Integer recipe_id, String name, int pos, int header)
+    public Cursor getAllIngredient(int  recipe_id)
     {
-    	ContentValues values = new ContentValues();
-    	values.put(INGREDIENT_REQUIRE_ENTRY.COLLUMN_NAME 	 , name);
-    	
-    	String selection = INGREDIENT_REQUIRE_ENTRY.COLLUMN_POS + "= " +  pos + " and " + INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID + "= " +  recipe_id + " and " + INGREDIENT_REQUIRE_ENTRY.COLLUMN_HEADER + "= " +  header ;
-    	int count =  mDb.update(TABLE_INGREDIENT_REQUIRE, values, selection, null);
-    	if (count > 0)
-    		return Boolean.TRUE;
-    	return Boolean.FALSE;
+    	String selection = INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID + " = " +   recipe_id ;
+    	return mDb.query(TABLE_INGREDIENT_REQUIRE, new String[] { INGREDIENT_REQUIRE_ENTRY._ID, INGREDIENT_REQUIRE_ENTRY.COLLUMN_NAME, INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID }, selection,null, null, null, null);
     }
+    
     
     //Function for direction
     public long CreateNewDirection(Integer recipe_id, String name, int step)
@@ -223,18 +199,11 @@ public class DBAdapter {
     	return mDb.insert(TABLE_DIRECTION_STEP, null,values);
     }
     
-    public Boolean ModifyDirection(Integer recipe_id, String name, int step)
+    public Cursor getAllDirection(int  recipe_id)
     {
-    	ContentValues values = new ContentValues();
-    	values.put(DIRECTION_STEP_ENTRY.COLLUMN_NAME 	 , name);
-    	
-    	String selection = DIRECTION_STEP_ENTRY.COLLUMN_STEP + "= " +  step + " and " + DIRECTION_STEP_ENTRY.COLLUMN_RECIPE_ID + "= " +  recipe_id ;
-    	int count =  mDb.update(TABLE_DIRECTION_STEP, values, selection, null);
-    	if (count > 0)
-    		return Boolean.TRUE;
-    	return Boolean.FALSE;
+    	String selection = DIRECTION_STEP_ENTRY.COLLUMN_RECIPE_ID + " = " +   recipe_id ;
+    	return mDb.query(TABLE_DIRECTION_STEP, new String[] { DIRECTION_STEP_ENTRY._ID, DIRECTION_STEP_ENTRY.COLLUMN_NAME, DIRECTION_STEP_ENTRY.COLLUMN_STEP, DIRECTION_STEP_ENTRY.COLLUMN_RECIPE_ID }, selection,null, null, null, null);
     }
-    
    
     
     

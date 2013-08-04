@@ -6,10 +6,13 @@ import java.util.List;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.cookcook.main.R;
 import com.cookcook.main.database.DBAdapter;
+<<<<<<< HEAD
 import com.cookcook.main.login.Login_Facebook;
 import com.cookcook.main.profile.Profile;
+=======
+import com.cookcook.main.my_recipe.My_Recipe_fragment;
+>>>>>>> 6712f5aee2a6417d8b656593deab254e5357f364
 import com.cookcook.main.socialfragment.Meal_planner_fragment;
-import com.cookcook.main.socialfragment.My_Recipe_fragment;
 import com.cookcook.main.socialfragment.Shopping_list_fragment;
 //import com.actionbarsherlock.app.SherlockActivity;
 

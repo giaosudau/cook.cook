@@ -48,8 +48,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	{
 		public static final String TABLE_NAME = "ingredient_require";
 		public static final String COLLUMN_NAME = "name";
-		public static final String COLLUMN_HEADER = "is_header";
-		public static final String COLLUMN_POS = "position";
 		public static final String COLLUMN_RECIPE_ID = "recipe_id";
 	}
 	
@@ -69,7 +67,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		public static final String COLLUMN_NAME = "name";
 		public static final String COLLUMN_PREPARE_TIME = "prepare_time";
 		public static final String COLLUMN_SERVING_NUMBER = "serving_number";
-		public static final String COLLUMN_DRAFT = "draft";
 		public static final String COLLUMN_CATEGORY = "category";
 	}
 	
@@ -104,8 +101,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
 			"CREATE TABLE " + INGREDIENT_REQUIRE_ENTRY.TABLE_NAME + " (" +
 			INGREDIENT_REQUIRE_ENTRY._ID 			 		+ " INTEGER PRIMARY KEY," +
 			INGREDIENT_REQUIRE_ENTRY.COLLUMN_NAME 			+ TEXT_TYPE + COMMA_SEP +
-			INGREDIENT_REQUIRE_ENTRY.COLLUMN_HEADER	 		+ INTEGER_TYPE	+ COMMA_SEP +
-			INGREDIENT_REQUIRE_ENTRY.COLLUMN_POS	 		+ INTEGER_TYPE	+ COMMA_SEP +
 			INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID	 	+ INTEGER_TYPE	+ " )";
 	
 	private static final String CREATE_TABLE_DIRECTION_STEP = 
@@ -119,9 +114,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
 			"CREATE TABLE " + MY_RECIPE_ENTRY.TABLE_NAME + " (" +
 			MY_RECIPE_ENTRY._ID 			 				+ " INTEGER PRIMARY KEY," +
 			MY_RECIPE_ENTRY.COLLUMN_NAME 					+ TEXT_TYPE + COMMA_SEP +
-			MY_RECIPE_ENTRY.COLLUMN_PREPARE_TIME			+ INTEGER_TYPE 	+ COMMA_SEP +
-			MY_RECIPE_ENTRY.COLLUMN_SERVING_NUMBER			+ INTEGER_TYPE 	+ COMMA_SEP +
-			MY_RECIPE_ENTRY.COLLUMN_DRAFT					+ BOOLEAN_TYPE 	+ COMMA_SEP +
+			MY_RECIPE_ENTRY.COLLUMN_PREPARE_TIME			+ TEXT_TYPE 	+ COMMA_SEP +
+			MY_RECIPE_ENTRY.COLLUMN_SERVING_NUMBER			+ TEXT_TYPE 	+ COMMA_SEP +
 			MY_RECIPE_ENTRY.COLLUMN_CATEGORY	 			+ TEXT_TYPE	+ " )";
 	
 	
