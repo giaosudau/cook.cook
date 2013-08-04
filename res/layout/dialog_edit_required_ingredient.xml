@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_layout_dialog_new_required_ingredient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+	<TableLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	    <TableRow >
+	        
+	         <EditText
+		        android:id="@+id/txt_amount_name_of_required_ingredient_edit"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:hint="amount and name" />
+
+	    </TableRow>
+	    
+	    <TableRow 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content">
+	         <Button 
+		        android:id="@+id/btn_edit_required_ingredient_edit"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.3"
+		        android:text="Edit"/>
+	         <Button 
+		        android:id="@+id/btn_remove_required_ingredient_edit"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.3"
+		        android:text="Remove"/>
+	          <Button 
+		        android:id="@+id/btn_close_required_ingredient_edit"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.3"
+		        android:text="Close"/>
+	    </TableRow>
+	</TableLayout>
+   
+    
+   
+
+</LinearLayout>

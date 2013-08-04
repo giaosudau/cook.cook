@@ -7,7 +7,7 @@ import java.util.List;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.ShareActionProvider;
-import com.cookcook.main.socialfragment.My_Recipe_Builder;
+import com.cookcook.main.my_recipe.My_Recipe_Edit;
 
 import android.app.Activity;
 import android.app.AlertDialog;
