@@ -56,11 +56,7 @@
     </application>
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
     
-    
 
-<<<<<<< HEAD
 
 </manifest>
-=======
-</manifest>
->>>>>>> 6712f5aee2a6417d8b656593deab254e5357f364
+
