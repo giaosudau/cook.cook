@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -83,10 +84,13 @@ public class JoinActivity extends Activity {
 								@Override
 								public void onSuccess(JSONObject result) {
 									try {
+										
 										if(result.get("info") == "success"){
 											Intent myIntent = new Intent(getApplicationContext(), LoginActivity.class);
+											myIntent.putExtra("name", str_username);
+											myIntent.putExtra("password", str_password);
 											startActivityForResult(myIntent, 0);
-										}
+										} 
 									} catch (JSONException e) {
 										// TODO Auto-generated catch block
 										e.printStackTrace();
@@ -94,11 +98,11 @@ public class JoinActivity extends Activity {
 									Toast.makeText(getApplicationContext(),
 											result.toString(),
 											Toast.LENGTH_LONG).show();
-									Intent intent = getIntent();
-									intent.putExtra("register", "OK");
-									intent.putExtra("name", str_username);
-									intent.putExtra("password", str_password);
-									setResult(RESULT_OK, intent);
+									//Intent intent = getIntent();
+									//intent.putExtra("register", "OK");
+									//intent.putExtra("name", str_username);
+									//intent.putExtra("password", str_password);
+									//setResult(RESULT_OK, intent);
 									finish();
 									
 								}

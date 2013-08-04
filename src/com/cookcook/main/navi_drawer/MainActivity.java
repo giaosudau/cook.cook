@@ -6,10 +6,11 @@ import java.util.List;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.cookcook.main.R;
 import com.cookcook.main.database.DBAdapter;
+import com.cookcook.main.login.Login_Facebook;
+import com.cookcook.main.profile.Profile;
 import com.cookcook.main.socialfragment.Meal_planner_fragment;
 import com.cookcook.main.socialfragment.My_Recipe_fragment;
 import com.cookcook.main.socialfragment.Shopping_list_fragment;
-import com.cookcook.main.socialfragment.Login_Facebook;
 //import com.actionbarsherlock.app.SherlockActivity;
 
 
@@ -150,6 +151,10 @@ public class MainActivity extends SherlockFragmentActivity {
 		else if(position == 9)
 		{
 			fragment = new Login_Facebook();
+		}
+		else if(position == 7)
+		{
+			fragment = new Profile();
 		}
 //     update the main content by replacing fragments
 //      Bundle args = new Bundle();

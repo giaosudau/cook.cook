@@ -1,22 +1,28 @@
 package com.cookcook.main.login;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.cookcook.main.R;
+import com.cookcook.main.login.Login_Preference;
 
 import com.cookcook.main.http.RestClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+
 
 public class LoginActivity extends Activity {
 	EditText field_username;
@@ -25,7 +31,9 @@ public class LoginActivity extends Activity {
 	Button btn_create_an_account;
 	static final int SIGN_UP_REQUEST = 1; // The request code
 	static final int HOME_REQUEST = 2; 
-	
+	SharedPreferences spProfile;
+	String strProfileName, strProfileNameGet, strUserName,strPassword,strDevice,strToken;
+	private Login_Preference login_preference;
 	
 	private void login(String strUserName, String strPassword) {
 		String android_id = Secure.getString(getBaseContext()
@@ -38,13 +46,24 @@ public class LoginActivity extends Activity {
 				new JsonHttpResponseHandler() {
 					@Override
 					public void onSuccess(JSONObject result) {
-						Toast.makeText(getApplicationContext(),
-								result.toString(),
-								Toast.LENGTH_LONG).show();
-						Intent home_intent = new Intent(getApplicationContext(),
-								JoinActivity.class);
-						startActivityForResult(home_intent, HOME_REQUEST);
+
+							Intent home_intent = new Intent(getApplicationContext(),
+									Login_Success.class);
+							home_intent.putExtra("name", LoginActivity.this.strUserName);
+							try {
+								home_intent.putExtra("device", result.toString());
+								home_intent.putExtra("token", result.getString("token"));
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+
+							home_intent.putExtra("name_get", LoginActivity.this.strUserName);
+
+							
+							startActivityForResult(home_intent,HOME_REQUEST);
 					}
+
 				});
 	}
 	
@@ -55,17 +74,18 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
+
 		field_username = (EditText) findViewById(R.id.field_username);
 		field_password = (EditText) findViewById(R.id.field_password);
 		btn_login = (Button) findViewById(R.id.btn_login);
 		btn_create_an_account = (Button) findViewById(R.id.btn_create_an_account);
-
+	
 		btn_login.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				String strUserName = field_username.getText().toString();
-				String strPassword = field_password.getText().toString();
+				strUserName = field_username.getText().toString();
+				strPassword = field_password.getText().toString();
 				if (strUserName.trim().equals("")) {
 					Toast.makeText(getApplicationContext(),
 							"Please Enter Username", Toast.LENGTH_SHORT).show();

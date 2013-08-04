@@ -5,7 +5,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 public class RestClient {
-	private static final String BASE_URL = "http://dicho.ap01.aws.af.cm/";
+	private static final String BASE_URL = "http://dicho2.aws.af.cm/";
 
 	private static AsyncHttpClient client = new AsyncHttpClient();
 
