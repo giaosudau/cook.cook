@@ -30,7 +30,7 @@ import android.widget.Toast;
 
 
 public class Login_Success extends Activity {
-	TextView txt_username,txt_email;
+	TextView txt_username,txt_email,txt_token;
 	ImageView img_avatar;
 	static final int SIGN_UP_REQUEST = 1; // The request code
 	static final int HOME_REQUEST = 2; 
@@ -45,6 +45,7 @@ public class Login_Success extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profile);
+		txt_token= (TextView) findViewById(R.id.txt_token);
 		txt_username= (TextView) findViewById(R.id.txt_username);
 		txt_email = (TextView) findViewById(R.id.txt_email);
 		img_avatar=(ImageView)findViewById(R.id.img_avatar);
@@ -56,7 +57,8 @@ public class Login_Success extends Activity {
 		//String xusername = editorprofile.getString("name","khongco");
 		Intent home_intent = getIntent();
 		txt_username.setText(home_intent.getStringExtra("name"));
-		txt_email.setText(home_intent.getStringExtra("token"));
+		txt_token.setText("Token: "+home_intent.getStringExtra("token"));
+		
 
 		
 		String android_id = Secure.getString(getBaseContext()
@@ -84,6 +86,7 @@ public class Login_Success extends Activity {
 						try {
 							btn_followers.setText(result.getInt("followers_count" )+ " followers");
 							btn_followings.setText(result.getInt("following_count" )+ " followings");
+
 							txt_username.setText("Screen Name: "+result.getString("screen_name"));
 							txt_email.setText("Email: "+result.getString("email"));
 							img_avatar_url= new URL(result.getString("avatar"));
