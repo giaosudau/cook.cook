@@ -51,6 +51,7 @@ public class LoginActivity extends Activity {
 									Login_Success.class);
 							home_intent.putExtra("name", LoginActivity.this.strUserName);
 							try {
+								Log.v("token receive:",result.toString());
 								home_intent.putExtra("device", result.toString());
 								home_intent.putExtra("token", result.getString("token"));
 							} catch (JSONException e) {

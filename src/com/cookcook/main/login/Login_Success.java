@@ -61,11 +61,18 @@ public class Login_Success extends Activity {
 		
 		String android_id = Secure.getString(getBaseContext()
 				.getContentResolver(), Secure.ANDROID_ID);
+		Log.v("token receive:",home_intent.getStringExtra("token"));
+		Login_Preference preference = Login_Preference.getLogin(this);
+		preference.deleteAllKey();
+		preference.putString("name", home_intent.getStringExtra("name"));
+		preference.putString("token", home_intent.getStringExtra("token"));
+		preference.putString("device", android_id);
 		RequestParams params = new RequestParams();
 		params.put("name", home_intent.getStringExtra("name"));
 		params.put("device", android_id);
 		params.put("token", home_intent.getStringExtra("token"));
 		params.put("name_get", home_intent.getStringExtra("name"));
+		Log.v("token set:",preference.getString("token", "0"));
 		RestClient.post("auth/getinfouser", params,
 				new JsonHttpResponseHandler() {
 					@Override

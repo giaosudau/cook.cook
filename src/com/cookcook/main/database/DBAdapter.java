@@ -175,17 +175,18 @@ public class DBAdapter {
         return mDb.delete(TABLE_RECIPE, MY_RECIPE_ENTRY._ID + " =" + recipe_id ,null)>0;
     }
     //Function for ingredient
-    public long CreateNewIngredient(Integer recipe_id, String name)
+    public long CreateNewIngredient(Integer recipe_id, String name, String unit)
     {
     	ContentValues values = new ContentValues();
     	values.put(INGREDIENT_REQUIRE_ENTRY.COLLUMN_NAME , name);
     	values.put(INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID , recipe_id);
+    	values.put(INGREDIENT_REQUIRE_ENTRY.COLLUMN_UNIT , unit);
     	return mDb.insert(TABLE_INGREDIENT_REQUIRE, null,values);
     }
     public Cursor getAllIngredient(int  recipe_id)
     {
     	String selection = INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID + " = " +   recipe_id ;
-    	return mDb.query(TABLE_INGREDIENT_REQUIRE, new String[] { INGREDIENT_REQUIRE_ENTRY._ID, INGREDIENT_REQUIRE_ENTRY.COLLUMN_NAME, INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID }, selection,null, null, null, null);
+    	return mDb.query(TABLE_INGREDIENT_REQUIRE, new String[] { INGREDIENT_REQUIRE_ENTRY._ID, INGREDIENT_REQUIRE_ENTRY.COLLUMN_NAME, INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID, INGREDIENT_REQUIRE_ENTRY.COLLUMN_UNIT }, selection,null, null, null, null);
     }
     
     

@@ -7,13 +7,9 @@ import java.util.List;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.ShareActionProvider;
-<<<<<<< HEAD:src/com/cookcook/main/login/Login_Facebook.java
 import com.cookcook.main.socialfragment.Model;
-import com.cookcook.main.socialfragment.My_Recipe_Builder;
 import com.cookcook.main.socialfragment.ShoppingListAdapter;
-=======
 import com.cookcook.main.my_recipe.My_Recipe_Edit;
->>>>>>> 6712f5aee2a6417d8b656593deab254e5357f364:src/com/cookcook/main/socialfragment/Login_Facebook.java
 
 import android.app.Activity;
 import android.app.AlertDialog;

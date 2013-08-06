@@ -2,7 +2,7 @@ package com.cookcook.main.my_recipe;
 
 import java.util.List;
 
-import com.cookcook.main.socialfragment.Item;
+import com.cookcook.main.my_recipe.Item;
 
 import android.content.Context;
 import android.view.LayoutInflater;

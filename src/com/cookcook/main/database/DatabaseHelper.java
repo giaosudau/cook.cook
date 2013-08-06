@@ -48,6 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	{
 		public static final String TABLE_NAME = "ingredient_require";
 		public static final String COLLUMN_NAME = "name";
+		public static final String COLLUMN_UNIT = "unit";
 		public static final String COLLUMN_RECIPE_ID = "recipe_id";
 	}
 	
@@ -101,6 +102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 			"CREATE TABLE " + INGREDIENT_REQUIRE_ENTRY.TABLE_NAME + " (" +
 			INGREDIENT_REQUIRE_ENTRY._ID 			 		+ " INTEGER PRIMARY KEY," +
 			INGREDIENT_REQUIRE_ENTRY.COLLUMN_NAME 			+ TEXT_TYPE + COMMA_SEP +
+			INGREDIENT_REQUIRE_ENTRY.COLLUMN_UNIT 			+ TEXT_TYPE + COMMA_SEP +
 			INGREDIENT_REQUIRE_ENTRY.COLLUMN_RECIPE_ID	 	+ INTEGER_TYPE	+ " )";
 	
 	private static final String CREATE_TABLE_DIRECTION_STEP = 

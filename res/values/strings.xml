@@ -70,5 +70,9 @@
         <item>Remove</item>
     </string-array>
     <string name="APP_ID">202639699891215</string>
-
+	<string name="album_name">CameraSample</string>
+	<string-array name="action_capture_picture_array">
+        <item>Camera</item>
+        <item>Gallery</item>
+    </string-array>
 </resources>

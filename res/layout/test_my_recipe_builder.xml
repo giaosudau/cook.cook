@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" >
+	
+	    
+	
+	        <RelativeLayout
+	            android:id="@+id/relativelayout_recipe_view"
+	            android:layout_width="match_parent"
+	            android:layout_height="170dp"
+	            android:layout_margin="10dp">
+					<ImageView 
+					    android:id="@+id/avatar_recipe_view"
+					    android:layout_width="match_parent"
+					    android:layout_height="150dp"/>
+					<TextView 
+					    android:id="@+id/txt_title_recipe_view"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:layout_below="@id/avatar_recipe_view"
+					    android:layout_centerHorizontal="true"
+					    android:text="asdasd"/>
+	        </RelativeLayout>
+	        
+	         <RelativeLayout
+	            android:id="@+id/empty_relative_layout_recipe_view"
+	            android:layout_width="match_parent"
+	            android:layout_height="30dp"
+	            android:layout_margin="1dp">
+			</RelativeLayout>
+	        
+		<TableLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content">
+	        <TableRow
+	            android:id="@+id/tableRow2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:layout_margin="10dp">
+	
+	            <TextView
+	                android:id="@+id/textView1"
+	                android:layout_width="120dp"
+	                android:layout_height="35dp"
+	                android:layout_margin="10dp"
+	                android:textColor="#fff"
+	                android:text="  Ingredients"
+	                android:textSize="20dp"
+	                android:background="#4c4c4c"/>
+	
+	            <TextView
+	                android:id="@+id/txt_prepare_time_recipe_view"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="1"
+	                android:text="Prep time is 30 min, server 2."
+	                android:textColor="#888484"/>
+	        </TableRow>
+	
+	        <TableRow
+	            android:id="@+id/tableRow3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:layout_margin="10dp">
+	
+	            <ListView 
+		            android:id="@+id/list_required_ingredient_view"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:dividerHeight="2dp">
+		        </ListView>
+	        </TableRow>
+	
+	        <TableRow
+	            android:id="@+id/tableRow4"
+	            android:layout_width="wrap_content"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:layout_margin="10dp">
+	            
+	             <TextView
+	                android:id="@+id/textView1"
+	                android:layout_width="120dp"
+	                android:layout_height="35dp"
+	                android:layout_margin="10dp"
+	                android:textColor="#fff"
+	                android:text="  Directions"
+	                android:textSize="20dp"
+	                android:background="#4c4c4c"/>
+	             
+	        </TableRow>
+		</TableLayout>
+		<ListView 
+            android:id="@+id/list_required_ingredient_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:dividerHeight="2dp">
+        </ListView>
+        
+		<!--  Like  -->
+		<RelativeLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="60dp"
+	            android:layout_margin="1dp"
+	            android:background="#242424">
+	        <TextView 
+	            android:id="@+id/txt_add_like_recipe_view"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:textColor="#fff"
+	            android:text="1 Review"
+	            android:textSize="20dp"/>
+	         <Button 
+                 android:id="@+id/button_add_like_recipe_view"
+                 android:layout_width="wrap_content"
+                 android:layout_height="50dp"
+                 android:layout_marginTop="5dp"
+                 android:layout_marginRight="5dp"
+                 android:layout_alignParentRight="true"
+                 android:text="Add"
+                 android:drawableRight="@drawable/btn_rating_star_on_focused_holo_light"
+                 android:background="#b9b3b3"/>
+		</RelativeLayout>
+		
+		
+        <ListView 
+            android:id="@+id/list_review_recipe_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:dividerHeight="2dp">
+        </ListView>
+	
+        <!-- Comments -->
+        <RelativeLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="60dp"
+	            android:layout_margin="1dp"
+	            android:background="#242424">
+	        <TextView 
+	            android:id="@+id/txt_add_comment_recipe_view"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:textColor="#fff"
+	            android:text="2 Comments"
+	            android:textSize="20dp"/>
+	         <Button 
+                 android:id="@+id/button_add_comment_recipe_view"
+                 android:layout_width="wrap_content"
+                 android:layout_height="50dp"
+                 android:layout_marginTop="5dp"
+                 android:layout_marginRight="5dp"
+                 android:layout_alignParentRight="true"
+                 android:text="Comment"
+                 android:background="#b9b3b3"/>
+		</RelativeLayout>
+		
+        <ListView 
+            android:id="@+id/list_comments_recipe_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:dividerHeight="2dp">
+        </ListView>
+        
+        <!-- Photo -->
+        <RelativeLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="60dp"
+	            android:layout_margin="1dp"
+	            android:background="#242424">
+	        <TextView 
+	            android:id="@+id/txt_add_photo_recipe_view"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:textColor="#fff"
+	            android:text="1 Photo"
+	            android:textSize="20dp"/>
+	         <Button 
+                 android:id="@+id/button_add_photo_recipe_view"
+                 android:layout_width="wrap_content"
+                 android:layout_height="50dp"
+                 android:layout_marginTop="5dp"
+                 android:layout_marginRight="5dp"
+                 android:layout_alignParentRight="true"
+                 android:text="Add Photo"
+                 android:background="#b9b3b3"/>
+		</RelativeLayout>
+		
+        <ListView 
+            android:id="@+id/list_photo_recipe_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:dividerHeight="2dp">
+        </ListView>
+	    
+	</LinearLayout>
+</ScrollView>

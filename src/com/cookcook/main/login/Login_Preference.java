@@ -30,4 +30,9 @@ public class Login_Preference {
 	public String getString(String key, String defaultValue) {
 		return spLogin.getString(key, defaultValue);
 	}
+	
+	public void deleteAllKey()
+	{
+		spLogin.edit().clear();
+	}
 }

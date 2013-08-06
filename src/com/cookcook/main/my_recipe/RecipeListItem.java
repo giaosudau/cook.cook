@@ -34,6 +34,10 @@ public class RecipeListItem implements Item {
     {
     	return id;
     }
+    public String getAmount()
+    {
+    	return str1;
+    }
     
     @Override
     public View getView(LayoutInflater inflater, View convertView) {

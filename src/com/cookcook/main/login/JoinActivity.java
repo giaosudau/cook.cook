@@ -74,6 +74,7 @@ public class JoinActivity extends Activity {
 					Toast.makeText(getApplicationContext(),
 							"Please Enter Password", Toast.LENGTH_SHORT).show();
 				} else {
+					Log.v("post info","============");
 					RequestParams params = new RequestParams();
 					params.put("screen_name", str_screen_name);
 					params.put("name", str_username);

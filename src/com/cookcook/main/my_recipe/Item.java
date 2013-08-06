@@ -8,4 +8,5 @@ public interface Item {
     public View getView(LayoutInflater inflater, View convertView);
     public String getName();
     public int getRecipe_id();
+    public String getAmount();
 }
