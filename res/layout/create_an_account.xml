@@ -8,8 +8,11 @@
         android:id="@+id/txt_join_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
         android:text="@string/txt_signup_form"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#a80008" />
 
     <EditText
         android:id="@+id/field_screen_name_sign_up"
@@ -57,9 +60,9 @@
         android:id="@+id/btn_join"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        style="@style/ButtonCookCook"
+        style="@style/button_text_login"
+        android:background="@drawable/login_button_at"
         android:layout_margin="20dp"
-        android:textColor="@color/white"
         android:text="@string/btn_join" />
 
 </LinearLayout>

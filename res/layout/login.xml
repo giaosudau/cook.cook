@@ -1,23 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <com.facebook.widget.LoginButton
-        android:id="@+id/btn_login_facebook"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login with Facebook"
-        android:layout_marginTop="5dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_login_facebook"
+            style="@style/button_text_login"
+            android:layout_width="match_parent"
+            android:background="@drawable/login_button_facebook"
+            android:text="Facebook Login" />
+
+        <Button
+            android:id="@+id/btn_login_server"
+            style="@style/button_text_login"
+            android:layout_width="match_parent"
+            android:background="@drawable/login_button_at"
+            android:text="Cook.Cook Login" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_toLeftOf="@+id/linearLayout1"
+        android:src="@drawable/ic_launcher_72" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/linearLayout1"
+        android:layout_toLeftOf="@+id/linearLayout1"
+        android:src="@drawable/logo_facebook72" />
 
     <Button
-        android:id="@+id/btn_login_server"
-        android:layout_width="match_parent"
+        android:id="@+id/btn_create_an_account"
+        style="@style/button_text_login"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#800"
-        android:text="Login with Cook.Cook"
-        android:textColor="#fff"
-        android:textStyle="bold" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_button_at"
+        android:text="Sign up for Cook.Cook" />
 
-</LinearLayout>
+</RelativeLayout>

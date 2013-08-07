@@ -12,6 +12,8 @@
 
 		       <Button
 		           android:id="@+id/btn_add_new_week"
+		           style="@style/button_text_login"
+	           		android:background="@drawable/login_button_at"
 		           android:layout_width="fill_parent"
 		           android:layout_height="wrap_content"
 		           android:text="@string/btn_add_new_week" />

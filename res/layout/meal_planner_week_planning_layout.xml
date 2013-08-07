@@ -26,6 +26,8 @@
 				    android:text="MONDAY"
 				    android:textColor="#fff"/>
 		       <Button android:id="@+id/btn_add_item_meal_planner_mon"
+		           style="@style/button_text_login"
+	           		android:background="@drawable/login_button_at"
 		           	android:text="ADD"
 		           	android:layout_height="wrap_content"
 		           	android:layout_width="wrap_content"
@@ -68,6 +70,8 @@
 				    android:text="TUESDAY"
 				    android:textColor="#fff"/>
 		       <Button android:id="@+id/btn_add_item_meal_planner_tue"
+		           style="@style/button_text_login"
+	           		android:background="@drawable/login_button_at"
 		           	android:text="ADD"
 		           	android:layout_height="wrap_content"
 		           	android:layout_width="wrap_content"
@@ -108,6 +112,8 @@
 				    android:text="WEDNESDAY"
 				    android:textColor="#fff"/>
 		       <Button android:id="@+id/btn_add_item_meal_planner_wed"
+		           style="@style/button_text_login"
+	           		android:background="@drawable/login_button_at"
 		           	android:text="ADD"
 		           	android:layout_height="wrap_content"
 		           	android:layout_width="wrap_content"
@@ -148,6 +154,8 @@
 				    android:text="THURSDAY"
 				    android:textColor="#fff"/>
 		       <Button android:id="@+id/btn_add_item_meal_planner_thu"
+		           style="@style/button_text_login"
+	           		android:background="@drawable/login_button_at"
 		           	android:text="ADD"
 		           	android:layout_height="wrap_content"
 		           	android:layout_width="wrap_content"
@@ -188,6 +196,8 @@
 				    android:text="FRIDAY"
 				    android:textColor="#fff"/>
 		       <Button android:id="@+id/btn_add_item_meal_planner_fri"
+		           style="@style/button_text_login"
+	           		android:background="@drawable/login_button_at"
 		           	android:text="ADD"
 		           	android:layout_height="wrap_content"
 		           	android:layout_width="wrap_content"
@@ -229,6 +239,8 @@
 				    android:text="SATURDAY"
 				    android:textColor="#fff"/>
 		       <Button android:id="@+id/btn_add_item_meal_planner_sat"
+		           style="@style/button_text_login"
+	           		android:background="@drawable/login_button_at"
 		           	android:text="ADD"
 		           	android:layout_height="wrap_content"
 		           	android:layout_width="wrap_content"
@@ -269,6 +281,8 @@
 				    android:text="SUNDAY"
 				    android:textColor="#fff"/>
 		       <Button android:id="@+id/btn_add_item_meal_planner_sun"
+		           style="@style/button_text_login"
+	           		android:background="@drawable/login_button_at"
 		           	android:text="ADD"
 		           	android:layout_height="wrap_content"
 		           	android:layout_width="wrap_content"
