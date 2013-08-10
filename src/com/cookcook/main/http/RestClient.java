@@ -10,10 +10,10 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 public class RestClient {
-	private static final String BASE_URL = "http://192.168.1.34:3000/";
+	private static final String BASE_URL = "http://dicho2.aws.af.cm/";
 //			"http://192.168.1.34:3000/";
 //			"http://dicho2.aws.af.cm/";
-//	
+//			http://192.168.194.1:3000
 
 	private static AsyncHttpClient client = new AsyncHttpClient();
 

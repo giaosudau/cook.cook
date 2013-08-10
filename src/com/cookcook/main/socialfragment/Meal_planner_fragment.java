@@ -140,7 +140,7 @@ public class Meal_planner_fragment extends SherlockFragment{
 			Log.v("====move===", "week:"+ list_week.get(arg2));
 			Fragment fragment = new Meal_planner_week_planning_fragment(list_week.get(arg2));
 			android.support.v4.app.FragmentManager fragmentManager = getSherlockActivity().getSupportFragmentManager();
-		    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+		    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
 		    Log.v("====done move===", "week:"+ list_week.get(arg2));
 		}
 	};

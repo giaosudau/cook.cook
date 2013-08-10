@@ -75,4 +75,5 @@
         <item>Camera</item>
         <item>Gallery</item>
     </string-array>
+     <string name="empty">No Data</string>
 </resources>

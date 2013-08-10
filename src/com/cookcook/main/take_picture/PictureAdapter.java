@@ -1,20 +1,32 @@
 package com.cookcook.main.take_picture;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.actionbarsherlock.app.SherlockActivity;
 import com.cookcook.main.R;
+import com.cookcook.main.http.RestClient;
+import com.cookcook.main.login.Login_Preference;
+import com.cookcook.main.sherlockprogressfragment.SherlockProgressActivity;
+import com.cookcook.main.sherlockprogressfragment.SherlockProgressFragment;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -36,6 +48,7 @@ public class PictureAdapter extends SherlockActivity{
 	private static final String JPEG_FILE_SUFFIX = ".jpg";
 	private static final String CAMERA_DIR = "/dcim/";
 	public static  String mCurrentPhotoPath;
+	public static Uri mCapturedImageURI;
 	/* Photo album for this application */
 	private String getAlbumName() {
 		return getString(R.string.album_name);
@@ -79,6 +92,12 @@ public class PictureAdapter extends SherlockActivity{
 		File imageF = File.createTempFile(imageFileName, JPEG_FILE_SUFFIX, albumF);
 		return imageF;
 	}
+	private String createFileName()
+	{
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+		String imageFileName = JPEG_FILE_PREFIX + timeStamp + "_";
+		return imageFileName;
+	}
 
 private File setUpPhotoFile() throws IOException {
 		
@@ -114,9 +133,14 @@ private void dispatchTakePictureIntent() {
 		File f = null;
 		Log.v("====","5");
 		try {
+			ContentValues values = new ContentValues();
+			values.put(MediaStore.Images.Media.TITLE, createFileName());
+			mCapturedImageURI = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+
 			f = setUpPhotoFile();
 			mCurrentPhotoPath = f.getAbsolutePath();
-			takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+//			takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+			takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
 		} catch (IOException e) {
 			e.printStackTrace();
 			f = null;
@@ -125,36 +149,23 @@ private void dispatchTakePictureIntent() {
 		Log.v("====","6");
 	startActivityForResult(takePictureIntent, 1);
 }
-
-@Override
-public void onActivityResult(int requestCode, int resultCode, Intent data) {
-	// TODO Auto-generated method stub
-	super.onActivityResult(requestCode, resultCode, data);
-	if(requestCode==1 && data != null && data.getData() != null)
-	{
-		if(resultCode==Activity.RESULT_OK)
-		{
-//			Bundle item=data.getExtras();
-//			Bitmap bitmap=(Bitmap)item.get("data");
-//			image.setImageBitmap(bitmap	);
-			Uri _uri = data.getData();
-			mCurrentPhotoPath = _uri.toString();
-		}
-	}
-	else if(requestCode == 2 && data != null && data.getData() != null) 
-	{
-        Uri _uri = data.getData();
-        mCurrentPhotoPath = _uri.toString();
-
-        //User had pick an image.
-        Cursor cursor =getContentResolver().query(_uri, new String[] { android.provider.MediaStore.Images.ImageColumns.DATA }, null, null, null);
+public String getRealPathFromURI(Uri contentUri)
+{
+    try
+    {
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = managedQuery(contentUri, proj, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
-
-        //Link to the image
-        mCurrentPhotoPath = cursor.getString(0);
-        cursor.close();
+        return cursor.getString(column_index);
+    }
+    catch (Exception e)
+    {
+        return contentUri.getPath();
     }
 }
+
+
 
 public boolean isIntentAvailable()
 {
@@ -168,5 +179,43 @@ public boolean onTouch(View v, MotionEvent event) {
 	// TODO Auto-generated method stub
 	
 	return false;
+}
+
+public void PostPictureToServer()
+{
+	Log.v("post picture","=============111111==========");
+	RequestParams params = new RequestParams();
+	//	File file = new File("/mnt/sdcard/viber/h.keychain");
+	File file = new File(mCurrentPhotoPath);
+	Login_Preference preference = Login_Preference.getLogin(this);
+	String username =  preference.getString("name", "1");
+	String token =  preference.getString("token", "1");
+	String device =  preference.getString("device", "1");
+	params.put("name", username);
+	params.put("token", token);
+	params.put("device", device);
+	try {
+		params.put("files", file);
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	Log.v("start to upload","ooo1"+params);
+	RestClient.post("api/photos", params,
+			new JsonHttpResponseHandler() {
+				@Override
+				public void onSuccess(JSONObject result) {
+					
+						Log.v("on success","---");
+						try {
+							Log.v("info receive when post picture",result.getString("success"));
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+				}
+
+			});
+	Log.v("post picture","=============222222===========");
 }
 }

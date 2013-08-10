@@ -54,6 +54,7 @@ public class LoginActivity extends Activity {
 								Log.v("token receive:",result.toString());
 								home_intent.putExtra("device", result.toString());
 								home_intent.putExtra("token", result.getString("token"));
+								home_intent.putExtra("account_id", result.getString("account_id"));
 							} catch (JSONException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();

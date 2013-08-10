@@ -32,9 +32,9 @@ public class RecipeItem implements Item {
     	return str2;
     }
     
-    public int getRecipe_id()
+    public String getRecipe_id()
     {
-    	return 0;
+    	return "";
     }
     @Override
     public View getView(LayoutInflater inflater, View convertView) {

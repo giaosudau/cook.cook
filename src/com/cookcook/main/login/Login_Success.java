@@ -69,6 +69,7 @@ public class Login_Success extends Activity {
 		preference.putString("name", home_intent.getStringExtra("name"));
 		preference.putString("token", home_intent.getStringExtra("token"));
 		preference.putString("device", android_id);
+		preference.putString("account_id", home_intent.getStringExtra("account_id"));
 		RequestParams params = new RequestParams();
 		params.put("name", home_intent.getStringExtra("name"));
 		params.put("device", android_id);

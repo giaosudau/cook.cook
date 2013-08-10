@@ -23,8 +23,7 @@
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    android:layout_below="@id/avatar_recipe_view"
-					    android:layout_centerHorizontal="true"
-					    android:text="asdasd"/>
+					    android:layout_centerHorizontal="true"/>
 	        </RelativeLayout>
 	        
 	         <RelativeLayout
@@ -62,13 +61,18 @@
 	                android:text="Prep time is 30 min, server 2."
 	                android:textColor="#888484"/>
 	        </TableRow>
-	
+			<TableRow
+	            android:id="@+id/tableRow6"
+	            android:layout_width="wrap_content"
+	            android:layout_height="1dp"
+	            android:background="#f33"
+	            android:padding="1dp"/>
 	        <TableRow
 	            android:id="@+id/tableRow3"
 	            android:layout_width="wrap_content"
 	            android:layout_height="0dp"
 	            android:layout_weight="1"
-	            android:layout_margin="10dp">
+	            android:layout_margin="1dp">
 	
 	            <ListView 
 		            android:id="@+id/list_required_ingredient_view"
@@ -84,7 +88,7 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="0dp"
 	            android:layout_weight="1"
-	            android:layout_margin="10dp">
+	            android:layout_margin="1dp">
 	            
 	             <TextView
 	                android:id="@+id/textView1"
@@ -97,15 +101,26 @@
 	                android:background="#4c4c4c"/>
 	             
 	        </TableRow>
+	         <TableRow
+	            android:id="@+id/tableRow5"
+	            android:layout_width="match_parent"
+	            android:layout_height="1dp"
+	            android:padding="1dp"
+	            android:background="#f33"/>
 		</TableLayout>
 		<ListView 
-            android:id="@+id/list_required_ingredient_view"
+            android:id="@+id/list_direction_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:dividerHeight="2dp">
         </ListView>
-        
+        <TextView 
+            android:id="@+id/txt_category_recipe_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="my category"
+            android:textSize="20dp"/>
 		<!--  Like  -->
 		<RelativeLayout
 	            android:layout_width="match_parent"
@@ -118,7 +133,7 @@
 	            android:layout_height="wrap_content"
 	            android:layout_marginTop="15dp"
 	            android:textColor="#fff"
-	            android:text="1 Review"
+	            android:text="0 Review"
 	            android:textSize="20dp"/>
 	         <Button 
                  android:id="@+id/button_add_like_recipe_view"
@@ -153,7 +168,7 @@
 	            android:layout_height="wrap_content"
 	            android:layout_marginTop="15dp"
 	            android:textColor="#fff"
-	            android:text="2 Comments"
+	            android:text="0 Comments"
 	            android:textSize="20dp"/>
 	         <Button 
                  android:id="@+id/button_add_comment_recipe_view"
@@ -186,7 +201,7 @@
 	            android:layout_height="wrap_content"
 	            android:layout_marginTop="15dp"
 	            android:textColor="#fff"
-	            android:text="1 Photo"
+	            android:text="0 Photo"
 	            android:textSize="20dp"/>
 	         <Button 
                  android:id="@+id/button_add_photo_recipe_view"
