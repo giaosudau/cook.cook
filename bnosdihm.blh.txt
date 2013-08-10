@@ -1,0 +1,48 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   bin/classes/com/cookcook/main/navi_drawer/MainActivity.class
+#	modified:   src/com/cookcook/main/navi_drawer/MainActivity.java
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	res/drawable-hdpi/ic_launcher_72.png
+#	res/drawable-hdpi/logo_facebook72.png
+#	res/drawable-mdpi/ic_action_attach.png
+#	res/drawable-mdpi/ic_action_call.png
+#	res/drawable-mdpi/ic_action_categ.png
+#	res/drawable-mdpi/ic_action_chief.png
+#	res/drawable-mdpi/ic_action_cut.png
+#	res/drawable-mdpi/ic_action_delete.png
+#	res/drawable-mdpi/ic_action_done.png
+#	res/drawable-mdpi/ic_action_edit.png
+#	res/drawable-mdpi/ic_action_home.png
+#	res/drawable-mdpi/ic_action_locate.png
+#	res/drawable-mdpi/ic_action_mail.png
+#	res/drawable-mdpi/ic_action_mail_add.png
+#	res/drawable-mdpi/ic_action_meal_plan.png
+#	res/drawable-mdpi/ic_action_microphone.png
+#	res/drawable-mdpi/ic_action_my_recipe.png
+#	res/drawable-mdpi/ic_action_news.png
+#	res/drawable-mdpi/ic_action_news_feed.png
+#	res/drawable-mdpi/ic_action_overflow.png
+#	res/drawable-mdpi/ic_action_paste.png
+#	res/drawable-mdpi/ic_action_photo.png
+#	res/drawable-mdpi/ic_action_search.png
+#	res/drawable-mdpi/ic_action_send.png
+#	res/drawable-mdpi/ic_action_share.png
+#	res/drawable-mdpi/ic_action_shop_list.png
+#	res/drawable-mdpi/ic_action_star.png
+#	res/drawable-mdpi/ic_action_user.png
+#	res/drawable-mdpi/ic_action_user_add.png
+#	res/drawable-mdpi/ic_action_video.png
+#	res/drawable-mdpi/icon_favorite_light32.png
+#	res/drawable/button_profile.xml
+#	res/drawable/login_button_at.xml
+#	res/drawable/login_button_facebook.xml
+

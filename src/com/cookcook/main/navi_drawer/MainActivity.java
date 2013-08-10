@@ -80,7 +80,7 @@ public class MainActivity extends SherlockFragmentActivity {
 		
 		mDb = new DBAdapter(this);
 		mDb.open();
-		mDb.DeleteAll();
+		//mDb.DeleteAll();
 //		mDb.CreateShoppingList("com", 0);
 //		mDb.CreateShoppingList("canh", 1);
 //		mDb.deleteShoppingList("canh");
