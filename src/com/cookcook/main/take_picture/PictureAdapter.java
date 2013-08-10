@@ -15,7 +15,6 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.cookcook.main.R;
 import com.cookcook.main.http.RestClient;
 import com.cookcook.main.login.Login_Preference;
-import com.cookcook.main.sherlockprogressfragment.SherlockProgressActivity;
 import com.cookcook.main.sherlockprogressfragment.SherlockProgressFragment;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;

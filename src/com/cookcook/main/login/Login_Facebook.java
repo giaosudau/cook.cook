@@ -44,6 +44,8 @@ public class Login_Facebook extends Fragment implements OnClickListener {
 				btn_login_fb.setOnClickListener(OnClick_Login_Facebook);
 				Button btn_login_server = (Button) rootView.findViewById(R.id.btn_login_server);
 				btn_login_server.setOnClickListener(OnClick_Login_Server);
+				Button btn_create_an_account = (Button)rootView.findViewById(R.id.btn_create_an_account);
+				btn_create_an_account.setOnClickListener(OnClick_Create_An_Account);
 		return rootView;
 	}
 
@@ -55,8 +57,6 @@ public class Login_Facebook extends Fragment implements OnClickListener {
 			// TODO Auto-generated method stub
 			Intent intentMain = new Intent(v.getContext(),LoginActivity.class);
 			startActivityForResult(intentMain, 0);
-			
-			
 		}
 	};
 	private final OnClickListener OnClick_Login_Facebook = new OnClickListener() 
@@ -67,12 +67,17 @@ public class Login_Facebook extends Fragment implements OnClickListener {
 			// TODO Auto-generated method stub
 			Intent intentMain = new Intent(v.getContext(),LoginFBActivity.class);
 			startActivityForResult(intentMain, 0);
-			
+		}
+	};
+	private final OnClickListener OnClick_Create_An_Account = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intentMain = new Intent(v.getContext(),JoinActivity.class);
+			startActivityForResult(intentMain, 0);
 			
 		}
-		
-	
-		
 	};
 
 

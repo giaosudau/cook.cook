@@ -106,10 +106,12 @@
 	    <!--  Required ingredient-->
         <Button
             android:id="@+id/btn_add_required_ingredient_edit_recipe"
+            style="@style/button_text_login"
+	        android:background="@drawable/login_button_at"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical|center_horizontal"
-            android:text="Add Required Ingredient"/>
+            android:text="+ Add Required Ingredient"/>
         <ListView 
             android:id="@+id/list_required_ingredient_edit"
             android:layout_width="match_parent"
@@ -121,11 +123,13 @@
          <!--  Direction Step-->
         <Button
             android:id="@+id/btn_add_direction_step_edit_recipe"
+            style="@style/button_text_login"
+	        android:background="@drawable/login_button_at"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal|fill"
-            android:text="Add Direction Step" />
+            android:text="+ Add Direction Step" />
 		<ListView 
             android:id="@+id/list_direction_step_edit"
             android:layout_width="match_parent"
@@ -137,11 +141,13 @@
 		 <!--  Category-->
          <Button
              android:id="@+id/btn_add_category_edit_recipe"
+             style="@style/button_text_login"
+	         android:background="@drawable/login_button_at"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_weight="1"
              android:gravity="left|center_vertical|center_horizontal"
-             android:text="Add Category" />
+             android:text="+ Add Category" />
 		 <TextView
                android:id="@+id/text_view_category"
                android:layout_width="match_parent"
@@ -151,6 +157,8 @@
 		 <!--  Save button--> 
           <Button
               android:id="@+id/btn_save_edit_recipe"
+              style="@style/button_text_login"
+	          android:background="@drawable/login_button_at"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:gravity="center_vertical|center_horizontal"
