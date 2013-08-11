@@ -39,7 +39,7 @@ public class RecipeItem implements Item {
     @Override
     public View getView(LayoutInflater inflater, View convertView) {
         View view;
-        Log.v("====text listitem===", "getview:");
+//        Log.v("====text listitem===", "getview:");
         if (convertView == null) {
             view = inflater.inflate(R.layout.simple_list_item, null);
             // Do some initialization
@@ -49,7 +49,7 @@ public class RecipeItem implements Item {
 
         TextView text1 = (TextView) view.findViewById(R.id.list_item_text);
         text1.setText(str1+" " +str2);
-        Log.v("====text listitem===", "getview1:");
+//        Log.v("====text listitem===", "getview1:");
         return view;
     }
 

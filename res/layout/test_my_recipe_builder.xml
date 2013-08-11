@@ -156,14 +156,6 @@
                  android:background="#b9b3b3"/>
 		</RelativeLayout>
 		
-		 <TextView 
-	            android:id="@+id/txt_list_like_recipe_view"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_marginTop="15dp"
-	            android:textColor="#fff"
-	            android:textSize="20dp"/>
-	
         <!-- Comments -->
         <RelativeLayout
 	            android:layout_width="match_parent"
@@ -177,6 +169,7 @@
 	            android:layout_marginTop="15dp"
 	            android:textColor="#fff"
 	            android:text="0 Comments"
+	            android:clickable="true"
 	            android:textSize="20dp"/>
 	         <Button 
                  android:id="@+id/button_add_comment_recipe_view"
@@ -189,14 +182,14 @@
                  android:background="#b9b3b3"/>
 		</RelativeLayout>
 		
-        <ListView 
+   <!--     <ListView 
             android:id="@+id/list_comments_recipe_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:dividerHeight="2dp">
         </ListView>
-        
+         --> 
         <!-- Photo -->
         <RelativeLayout
 	            android:layout_width="match_parent"

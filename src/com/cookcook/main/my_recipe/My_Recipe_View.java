@@ -20,6 +20,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -50,6 +51,7 @@ import com.cookcook.main.R;
 import com.cookcook.main.database.DBAdapter;
 import com.cookcook.main.http.RestClient;
 import com.cookcook.main.socialfragment.Helper;
+import com.cookcook.main.socialfragment.Model;
 import com.cookcook.main.take_picture.PictureAdapter;
 import com.cookcook.main.universal_image_loader.ImagePagerActivity;
 import com.cookcook.main.login.LoginActivity;
@@ -76,11 +78,10 @@ public class My_Recipe_View extends PictureAdapter {
 	
 	TextView txt_like;
 	Button button_add_like;
-	TextView list_like;
 	
 	TextView txt_comment;
 	Button button_add_comment;
-	ListView list_comment;
+//	ListView list_comment;
 	
 	TextView txt_photo;
 	Button button_add_photo;
@@ -102,11 +103,14 @@ public class My_Recipe_View extends PictureAdapter {
 	protected ImageLoader imageLoader = ImageLoader.getInstance();
 	int isMyRecipe=0;
 	int isAvatar;
+	int like_number;
+	int comment_number;
 	String prepare_time;
 	String serving_number;
 	String category_local;
 	ArrayList<String> picture_array_local;
 	String main_picture_local;
+	JSONArray comment_object;
 	
 	public My_Recipe_View(String recipe_id)
 	{
@@ -150,11 +154,12 @@ public class My_Recipe_View extends PictureAdapter {
 		txt_like = (TextView)findViewById(R.id.txt_add_like_recipe_view);
 		button_add_like = (Button)findViewById(R.id.button_add_like_recipe_view);
 		button_add_like.setOnClickListener(OnClick_Add_Like);
-		list_like = (TextView)findViewById(R.id.txt_list_like_recipe_view);
 		
 		txt_comment = (TextView)findViewById(R.id.txt_add_comment_recipe_view);
+		txt_comment.setOnClickListener(onclick_Show_Comment);
 		button_add_comment = (Button)findViewById(R.id.button_add_comment_recipe_view);
-		list_comment = (ListView)findViewById(R.id.list_comments_recipe_view);
+		button_add_comment.setOnClickListener(OnClick_Add_New_Comment);
+//		list_comment = (ListView)findViewById(R.id.list_comments_recipe_view);
 		
 		txt_photo = (TextView)findViewById(R.id.txt_add_photo_recipe_view);
 		txt_photo.setOnClickListener(new OnClickListener() {
@@ -169,6 +174,7 @@ public class My_Recipe_View extends PictureAdapter {
 			}
 		});
 		button_add_photo = (Button)findViewById(R.id.button_add_photo_recipe_view);
+		button_add_photo.setOnClickListener(OnClick_Add_New_Photo);
 		txt_category = (TextView)findViewById(R.id.txt_category_recipe_view);
 		
 		data_required_ingredient = new ArrayList<Item>();
@@ -181,9 +187,7 @@ public class My_Recipe_View extends PictureAdapter {
         list_direction.setAdapter(adapter_direction_step);
         
 //		  Photo
-        button_add_photo.setOnClickListener(OnClick_Add_New_Photo);
-//        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);  
-//        setProgressBarIndeterminateVisibility(true);
+        
         
         options = new DisplayImageOptions.Builder()
 		.showStubImage(R.drawable.ic_stub)
@@ -196,82 +200,7 @@ public class My_Recipe_View extends PictureAdapter {
 //        imageLoader.displayImage("http://dicho2.aws.af.cm/photos/20333d356be86b1CAM00155.jpg", avatar, options);
         obtainData();
 	}
-//	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//			Bundle savedInstanceState) {
-//		// TODO Auto-generated method stub
-//		rootView = inflater.inflate(R.layout.test_my_recipe_builder, container, false);
-//		setHasOptionsMenu(true);
-//		avatar = (ImageView)rootView.findViewById(R.id.avatar_recipe_view);
-//		txt_title = (TextView)rootView.findViewById(R.id.txt_title_recipe_view);
-//		emptyLayout = (RelativeLayout)rootView.findViewById(R.id.empty_relative_layout_recipe_view);
-//		txt_PrepareTime = (TextView)rootView.findViewById(R.id.txt_prepare_time_recipe_view);
-//		list_require_ingredient = (ListView)rootView.findViewById(R.id.list_required_ingredient_view);
-//		list_direction = (ListView)rootView.findViewById(R.id.list_direction_view);
-//		
-//		button_add_like = (Button)rootView.findViewById(R.id.button_add_like_recipe_view);
-//		list_like = (ListView)rootView.findViewById(R.id.list_review_recipe_view);
-//		
-//		button_add_comment = (Button)rootView.findViewById(R.id.button_add_comment_recipe_view);
-//		list_comment = (ListView)rootView.findViewById(R.id.list_comments_recipe_view);
-//		
-//		button_add_photo = (Button)rootView.findViewById(R.id.button_add_photo_recipe_view);
-//		list_photo = (ListView)rootView.findViewById(R.id.list_photo_recipe_view);
-//		txt_category = (TextView)rootView.findViewById(R.id.txt_category_recipe_view);
-//		
-//		data_required_ingredient = new ArrayList<Item>();
-//        data_direction_step = new ArrayList<Item>();
-//        
-//        adapter_required_ingredient = new SimpleTextArrayAdapter(getActivity(), data_required_ingredient);
-//        list_require_ingredient.setAdapter(adapter_required_ingredient);
-//        
-//        adapter_direction_step = new SimpleTextArrayAdapter(getActivity(), data_direction_step);
-//        list_direction.setAdapter(adapter_direction_step);
-//        
-////		  Photo
-//        button_add_photo.setOnClickListener(OnClick_Add_New_Photo);
-////        list_required_ingredient = (ListView)findViewById(R.id.list_required_ingredient_edit);
-//      
-//        
-//
-////        Helper.getListViewSize(list_required_ingredient);
-//        
-//        
-////      Direction Step
-////        btn_add_direction_step = (Button)findViewById(R.id.btn_add_direction_step_edit_recipe);
-////        btn_add_direction_step.setOnClickListener(OnClick_Add_New_Direction_Step);
-////        list_direction_step = (ListView)findViewById(R.id.list_direction_step_edit);
-//        
-//        
-//
-////        Helper.getListViewSize(list_direction_step);
-//		
-//		return super.onCreateView(inflater, container, savedInstanceState);
-//	}
-//	
-//	public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        preference = Login_Preference.getLogin(getActivity());
-//        username =  preference.getString("name", "1");
-//        token =  preference.getString("token", "1");
-//        device =  preference.getString("device", "1");
-//        Log.v("===token username","name:"+username+";;token::"+token);
-//        Take_Picture_From_Every_Where();
-//        setContentView(R.layout.example);
-//        Button button = (Button)findViewById(R.id.button_example);
-//        EditText editText = (EditText)findViewById(R.id.txt_example);
-//        
-//        button.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				Log.v("start to upload","ooo");
-//				
-//			}
-//		});
-////        
-        
-//    }
+
 	private final OnClickListener OnClick_ChangeAvatar = new OnClickListener() 
 	{
 		@Override
@@ -302,6 +231,37 @@ public class My_Recipe_View extends PictureAdapter {
 			
 		}
 	};
+	private final OnClickListener onclick_Show_Comment = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Log.v("info when click comment",""+comment_object.toString());
+			ArrayList<String> usernames = new ArrayList<String>();
+			ArrayList<String> comments	= new ArrayList<String>();
+			ArrayList<String> times	= new ArrayList<String>();
+			for(int i=0; i< comment_object.length(); i++)
+			{
+				try {
+					usernames.add(comment_object.getJSONObject(i).getJSONObject("created_by").getString("name"));
+					comments.add(comment_object.getJSONObject(i).getString("body"));
+					times.add(comment_object.getJSONObject(i).getString("created_at"));
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			String[] arr_usernames = usernames.toArray(new String[usernames.size()]);
+			String[] arr_comments = comments.toArray(new String[comments.size()]);
+			String[] arr_times = times.toArray(new String[times.size()]);
+			Intent intent = new Intent(getApplicationContext(), Comment_My_Recipe.class);
+			intent.putExtra("name", arr_usernames);
+			intent.putExtra("comment", arr_comments);
+			intent.putExtra("time", arr_times);
+			startActivity(intent);
+		}
+	};
 	
 	private final OnClickListener OnClick_Add_Like = new OnClickListener() 
 	{
@@ -313,7 +273,38 @@ public class My_Recipe_View extends PictureAdapter {
 			
 		}
 	};
-	
+	private final OnClickListener OnClick_Add_New_Comment = new OnClickListener() 
+	{
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			AlertDialog.Builder adb = new AlertDialog.Builder(My_Recipe_View.this);
+//			adb.setTitle();
+			adb.setMessage("Add new comment");
+			//Set view EditText on Dialog
+			final EditText input =new EditText(My_Recipe_View.this);
+			adb.setView(input);
+			
+			//View Button Ok, Cancel
+			adb.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					String value = input.getText().toString();
+					dialog.dismiss();
+					UpdateComment(value);
+				}
+			});
+			
+			adb.setNegativeButton("Cancel", null);
+			Dialog dialog = adb.create();
+			dialog.show();
+//			UpdateLike();
+
+			
+		}
+	};
 	public void Take_Picture_From_Every_Where()
 	{
 		Log.v("take picture","=============1===========");		
@@ -385,6 +376,7 @@ public class My_Recipe_View extends PictureAdapter {
   	    						JSONArray direction_array  = result.getJSONArray("steps");
   	    						JSONArray picture_array  = result.getJSONArray("picture");
   	    						JSONArray like_array  = result.getJSONArray("likes");
+  	    						comment_object  = result.getJSONArray("comments");
   	    						txt_title.setText(name);
   	    						txt_PrepareTime.setText("Prep time is "+prepare_time+" min, server "+serving_number);
 //  	    						Time_Serving.setText(serving_number);
@@ -439,22 +431,20 @@ public class My_Recipe_View extends PictureAdapter {
   	    							txt_photo.setText(picture_array_local.size()+ " Photo");
 //  	    							imageLoader.displayImage(picture_array_local.get(0), avatar, options);
   	    						}
-  	    						String like_person="";
+  	    						Log.v("number of like:",""+like_array.length());
   	    						if(like_array.length()>0)
   	    						{
-  	    							for(i=0; i< like_array.length(); i+=1)
-  	    							{
-  	    								if(i < 10)
-  	    								{
-  	    									like_person = like_person + ", " + like_array.getJSONObject(i).getString("name");
-  	    								}
-  	    							}
-  	    							txt_like.setText(like_array.length() +" Like");
-  	    							list_like.setText(like_person);
-//  	    							imageLoader.displayImage(picture_array_local.get(0), avatar, options);
+  	    							like_number = like_array.length();
+  	    							txt_like.setText(like_number +" Like");
+  	    						}
+  	    						Log.v("number of comment:",""+comment_object.length());
+  	    						if(comment_object.length()>0)
+  	    						{
+  	    							comment_number = comment_object.length();
+  	    							txt_comment.setText(comment_number +" Comment");
   	    						}
   	    						main_picture_local = result.getString("main_picture");
-  	    						imageLoader.displayImage(main_picture_local, avatar, options);
+  	    						imageLoader.displayImage(RestClient.getAbsoluteUrl(main_picture_local), avatar, options);
   								if(username.equals(name_user_get))
   								{
   									isMyRecipe=1;
@@ -742,7 +732,43 @@ public class My_Recipe_View extends PictureAdapter {
 					public void onSuccess(JSONObject result) {
 						Log.v("info received",""+result.toString());
 						try {
-							Log.v("dish",""+result.getJSONObject("dishes").getJSONObject("likes").toString());
+							JSONArray like_info =  result.getJSONObject("dishes").getJSONArray("likes");
+							like_number = like_info.length();
+							txt_like.setText(like_number +" Like");
+//							Log.v("dish",""+result.getJSONObject("dishes").getJSONArray("likes").toString());
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+		);
+	}
+	
+	private void UpdateComment(String body)
+	{
+		Login_Preference preference = Login_Preference.getLogin(this);
+		String username =  preference.getString("name", "1");
+		String token =  preference.getString("token", "1");
+		String device =  preference.getString("device", "1");
+		String account_id =  preference.getString("account_id", "1");
+		RequestParams params = new RequestParams();
+		params.put("name", username);
+		params.put("token", token);
+		params.put("device", device);
+		params.put("created_by", account_id);
+		params.put("_id", recipe_id);
+		params.put("body", body);
+		RestClient.post("dishes/createComment", params,
+				new JsonHttpResponseHandler() {
+					@Override
+					public void onSuccess(JSONObject result) {
+						Log.v("info received",""+result.toString());
+						try {
+							comment_object =  result.getJSONArray("comments");
+							comment_number = comment_object.length();
+							txt_comment.setText(comment_number +" Comment");
+								
 						} catch (JSONException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

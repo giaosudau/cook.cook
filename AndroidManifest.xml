@@ -54,7 +54,7 @@
              		        android:configChanges="orientation|keyboardHidden"
 		        			android:screenOrientation="portrait">        
          </activity>
-        
+        <activity android:name="com.cookcook.main.my_recipe.Comment_My_Recipe"/>   
          <!-- Shopping List -->
          <activity android:name="com.cookcook.main.socialfragment.Shopping_list_fragment">
          </activity>
