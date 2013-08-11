@@ -162,7 +162,7 @@ public class MainActivity extends SherlockFragmentActivity {
 //      fragment.setArguments(args);
 
       android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-      fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+      fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
 
       // update selected item and title, then close the drawer
 //      mDrawerList.setItemChecked(position, true);

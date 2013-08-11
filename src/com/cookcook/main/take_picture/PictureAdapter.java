@@ -48,6 +48,7 @@ public class PictureAdapter extends SherlockActivity{
 	private static final String CAMERA_DIR = "/dcim/";
 	public static  String mCurrentPhotoPath;
 	public static Uri mCapturedImageURI;
+	public static String ImageURIGetted;
 	/* Photo album for this application */
 	private String getAlbumName() {
 		return getString(R.string.album_name);
@@ -107,6 +108,7 @@ private File setUpPhotoFile() throws IOException {
 }
 public void takePictureFromGallery()
 {
+	Log.v("take picture from galerry","===============");
 	Intent intent = new Intent();
 	intent.setType("image/*");
 	intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -207,7 +209,8 @@ public void PostPictureToServer()
 					
 						Log.v("on success","---");
 						try {
-							Log.v("info receive when post picture",result.getString("success"));
+							ImageURIGetted = result.getString("success");
+							Log.v("info receive when post picture",ImageURIGetted);
 						} catch (JSONException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

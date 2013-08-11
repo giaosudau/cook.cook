@@ -195,7 +195,7 @@ public class My_Recipe_Edit extends SherlockProgressFragment {
       					}});
           }
         mHandler = new Handler();
-        mHandler.postDelayed(mShowContentRunnable, 3000);
+        mHandler.postDelayed(mShowContentRunnable, 1000);
     }
 	
 	private final OnClickListener OnClick_Add_New_Required_Ingredient = new OnClickListener() 

@@ -127,7 +127,7 @@ public class My_Recipe_fragment extends SherlockProgressFragment {
 //							startActivityForResult(intentMain, 0);
 							Fragment fragment = new My_Recipe_Edit(My_Recipe_fragment.this.data.get(arg2).getRecipe_id());
 							android.support.v4.app.FragmentManager fragmentManager = getSherlockActivity().getSupportFragmentManager();
-						    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+						    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
 						}
 						
 						//Remove
@@ -262,7 +262,7 @@ public class My_Recipe_fragment extends SherlockProgressFragment {
 		});
 		
         mHandler = new Handler();
-        mHandler.postDelayed(mShowContentRunnable, 3000);
+        mHandler.postDelayed(mShowContentRunnable, 1000);
     }
 	
 	@Override

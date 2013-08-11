@@ -34,7 +34,7 @@ public class RestClient {
 		client.post(context, getAbsoluteUrl(url), entity, type, responseHandler);
 	}
 
-	private static String getAbsoluteUrl(String relativeUrl) {
+	public static String getAbsoluteUrl(String relativeUrl) {
 		return BASE_URL + relativeUrl;
 	}
 

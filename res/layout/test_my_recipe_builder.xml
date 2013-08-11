@@ -29,8 +29,17 @@
 	         <RelativeLayout
 	            android:id="@+id/empty_relative_layout_recipe_view"
 	            android:layout_width="match_parent"
-	            android:layout_height="30dp"
+	            android:layout_height="50dp"
 	            android:layout_margin="1dp">
+
+				 <Button
+				     android:id="@+id/btn_changeAvatarRecipeView"
+				     android:background="@drawable/login_button_at"
+				     style="@style/button_text_login"
+				     android:layout_width="match_parent"
+				     android:layout_height="match_parent"
+				     android:text="Change Avatar" />
+
 			</RelativeLayout>
 	        
 		<TableLayout
@@ -133,7 +142,7 @@
 	            android:layout_height="wrap_content"
 	            android:layout_marginTop="15dp"
 	            android:textColor="#fff"
-	            android:text="0 Review"
+	            android:text="0 Like"
 	            android:textSize="20dp"/>
 	         <Button 
                  android:id="@+id/button_add_like_recipe_view"
@@ -142,19 +151,18 @@
                  android:layout_marginTop="5dp"
                  android:layout_marginRight="5dp"
                  android:layout_alignParentRight="true"
-                 android:text="Add"
+                 android:text="Like"
                  android:drawableRight="@drawable/btn_rating_star_on_focused_holo_light"
                  android:background="#b9b3b3"/>
 		</RelativeLayout>
 		
-		
-        <ListView 
-            android:id="@+id/list_review_recipe_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:dividerHeight="2dp">
-        </ListView>
+		 <TextView 
+	            android:id="@+id/txt_list_like_recipe_view"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:textColor="#fff"
+	            android:textSize="20dp"/>
 	
         <!-- Comments -->
         <RelativeLayout
@@ -213,14 +221,5 @@
                  android:text="Add Photo"
                  android:background="#b9b3b3"/>
 		</RelativeLayout>
-		
-        <ListView 
-            android:id="@+id/list_photo_recipe_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:dividerHeight="2dp">
-        </ListView>
-	    
 	</LinearLayout>
 </ScrollView>

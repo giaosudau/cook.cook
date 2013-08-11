@@ -48,7 +48,7 @@ public class RecipeItem implements Item {
         }
 
         TextView text1 = (TextView) view.findViewById(R.id.list_item_text);
-        text1.setText(str1+str2);
+        text1.setText(str1+" " +str2);
         Log.v("====text listitem===", "getview1:");
         return view;
     }
