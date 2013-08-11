@@ -1,21 +1,35 @@
 package com.cookcook.main.my_recipe;
 
+import com.cookcook.main.http.RestClient;
 import com.cookcook.main.my_recipe.Item;
 import com.cookcook.main.socialfragment.SimpleTextArrayAdapter.RowType;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.cookcook.main.R;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class RecipeListItem implements Item {
     private final String str1;
-    private final Integer  icon;
+    private final String  icon;
     private final String id;
+    protected ImageLoader imageLoader = ImageLoader.getInstance();
+    
+    DisplayImageOptions options = new DisplayImageOptions.Builder()
+	.showStubImage(R.drawable.ic_stub)
+	.showImageForEmptyUri(R.drawable.ic_empty)
+	.showImageOnFail(R.drawable.ic_empty)
+	.cacheInMemory(true)
+	.cacheOnDisc(true)
+	.bitmapConfig(Bitmap.Config.RGB_565)
+	.build();
 
-    public RecipeListItem(String text1, Integer image1, String id) {
+    public RecipeListItem(String text1, String image1, String id) {
         this.str1 = text1;
         this.icon = image1;
         this.id = id;
@@ -53,7 +67,8 @@ public class RecipeListItem implements Item {
         TextView text1 = (TextView) view.findViewById(R.id.list_recipe_title_dish);
         ImageView image1 = (ImageView) view.findViewById(R.id.list_recipe_avatar_dish);
         text1.setText(str1);
-        image1.setImageResource(icon);
+        imageLoader.displayImage(RestClient.getAbsoluteUrl(icon), image1, options);
+//        image1.setImageResource(icon);
 //        Log.v("====text listitem===", "getview1:");
         return view;
     }

@@ -57,7 +57,8 @@ public class Comment_My_Recipe extends SherlockActivity {
 		setContentView(R.layout.my_recipe);
 		for(int i=0; i< arr_comments.length; i++)
 		{
-			data.add(new Model_Comments(arr_usernames[i], arr_comments[i], arr_times[i]));
+			String time_slit =arr_times[i].substring(0, 10);
+			data.add(new Model_Comments(arr_usernames[i], arr_comments[i], time_slit));
 		}
 		listview = (ListView) findViewById(R.id.lv_recipe);
 		adapter = new CommentListAdapter(this, data);

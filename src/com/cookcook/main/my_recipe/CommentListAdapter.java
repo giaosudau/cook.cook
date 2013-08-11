@@ -51,21 +51,6 @@ public class CommentListAdapter extends ArrayAdapter<Model_Comments>{
 			rowView.setTag(viewHolder);
 		}
 		
-//		rowView.setOnClickListener(new View.OnClickListener() {
-//			
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				ViewHolder viewHold=(ViewHolder)v.getTag();
-//				Model_Comments element = (Model_Comments)viewHold.check.getTag();
-//				element.setSelected(!((Model_Comments)viewHold.check.getTag()).getSelected());
-//				viewHold.check.setChecked(element.getSelected());
-//				
-//				mDb.open();
-//				mDb.ModifyShoppingList(element.getName(), element.getSelected()== true?1:0);
-////				Toast.makeText(context, "You choose:"+((Model)viewHold.check.getTag()).getName()+";isChecked:"+((Model)viewHold.check.getTag()).getSelected(), Toast.LENGTH_SHORT).show();
-//				mDb.close();
-//			}
-//		});
 		ViewHolder viewHolder=(ViewHolder)rowView.getTag();
 		viewHolder.text.setText(list.get(position).getComment());
 		viewHolder.info.setText("at: "+list.get(position).getTime()+ "; by:"+list.get(position).getName());
