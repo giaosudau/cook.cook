@@ -3,17 +3,28 @@ package com.cookcook.main.navi_drawer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.cookcook.main.R;
 import com.cookcook.main.database.DBAdapter;
+import com.cookcook.main.http.RestClient;
+import com.cookcook.main.login.LoginActivity;
 import com.cookcook.main.login.Login_Facebook;
+import com.cookcook.main.login.Login_Preference;
 import com.cookcook.main.profile.Profile;
+import com.cookcook.main.my_recipe.My_Recipe_View;
 import com.cookcook.main.my_recipe.My_Recipe_fragment;
 import com.cookcook.main.socialfragment.Meal_planner_fragment;
 import com.cookcook.main.socialfragment.Shopping_list_fragment;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 //import com.actionbarsherlock.app.SherlockActivity;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -78,8 +89,8 @@ public class MainActivity extends SherlockFragmentActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
 		
-		mDb = new DBAdapter(this);
-		mDb.open();
+//		mDb = new DBAdapter(this);
+//		mDb.open();
 		//mDb.DeleteAll();
 //		mDb.CreateShoppingList("com", 0);
 //		mDb.CreateShoppingList("canh", 1);
@@ -114,7 +125,8 @@ public class MainActivity extends SherlockFragmentActivity {
 //    		Log.v("delete  recipe", "delete");
 //    		mDb.DeleteRecipe(id);
 //    	}
-		mDb.close();
+//		mDb.close();
+		obtainData();
 	}
 
 //	@Override
@@ -133,6 +145,12 @@ public class MainActivity extends SherlockFragmentActivity {
 	{
 		Log.v("You press item:", ""+position);
 		Fragment fragment = null;
+		if (position ==1)
+		{
+			Intent intentMain = new Intent(this,HomeGridActivity.class);
+//			intentMain.putExtra("recipe_id", My_Recipe_fragment.this.data.get(arg2).getRecipe_id());
+			startActivity(intentMain);
+		}
 		if (position == 11)
 		{
 			//Choose meal planner
@@ -156,6 +174,10 @@ public class MainActivity extends SherlockFragmentActivity {
 		{
 			fragment = new Profile();
 		}
+		else
+		{
+			return;
+		}
 //     update the main content by replacing fragments
 //      Bundle args = new Bundle();
 //      args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
@@ -175,5 +197,34 @@ public class MainActivity extends SherlockFragmentActivity {
 	        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 	            selectItem(position);
 	        }
+	    }
+	 
+	 private void obtainData() {
+	        Login_Preference preference = Login_Preference.getLogin(this);
+			String username =  preference.getString("name", "1");
+			String token =  preference.getString("token", "1");
+			String device =  preference.getString("device", "1");
+			if(token.equals("1"))
+			{
+				Intent intentMain = new Intent(getApplicationContext(),LoginActivity.class);
+				startActivityForResult(intentMain, 0);
+			}
+			RequestParams params = new RequestParams();
+			params.put("name", username);
+			params.put("token", token);
+			params.put("device", device);
+			Log.v("info post",params.toString());
+			RestClient.post("auth/autologin", params,
+					new JsonHttpResponseHandler() {
+						@Override
+						public void onSuccess(JSONObject result) {
+//							Log.v("result",""+result.toString());
+							if(! result.has("info"))
+							{
+								Intent intentMain = new Intent(getApplicationContext(),LoginActivity.class);
+								startActivityForResult(intentMain, 0);
+							}
+						}
+			});
 	    }
 }

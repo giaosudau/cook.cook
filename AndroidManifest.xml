@@ -55,6 +55,9 @@
 		        			android:screenOrientation="portrait">        
          </activity>
         <activity android:name="com.cookcook.main.my_recipe.Comment_My_Recipe"/>   
+        
+        <!-- Home -->
+         <activity android:name="com.cookcook.main.navi_drawer.HomeGridActivity"/>
          <!-- Shopping List -->
          <activity android:name="com.cookcook.main.socialfragment.Shopping_list_fragment">
          </activity>
